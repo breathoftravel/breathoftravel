@@ -16,6 +16,6 @@ export async function generateStaticParams() {
     slug: product.slug,
   }));
 }
-export default function Page({ params }: { params: { slug: string[] } }) {
+export default function Page() {
   return (<SearchPage/>)
 }
