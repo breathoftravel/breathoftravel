@@ -7,7 +7,6 @@ import {
   WalletIcon
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
-import ImageCarousel from "@/components/sections/ImageCarousel/page";
 import BackgroundImage from "@/components/sections/BackgroundImage";
 
 interface IProduct {
