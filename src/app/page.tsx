@@ -135,22 +135,22 @@ export default async function Home() {
             let icon;
             switch (category.slug) {
               case 'islands':
-                icon = <WalletIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                icon = <WalletIcon className="w-12 h-12 text-rose-500 shadow-2xl z-10 drop-shadow-2xl"/>
                 break
               case 'city':
-                icon = <Battery50Icon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                icon = <Battery50Icon className="w-12 h-12 text-rose-500 shadow-2xl z-10"/>
                 break
               case 'health':
-                icon = <RocketLaunchIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                icon = <RocketLaunchIcon className="w-12 h-12 text-rose-500 shadow-2xl z-10"/>
                 break
               case 'adventure':
-                icon = <StarIconFull className="w-12 h-12 text-white shadow-2xl z-10"/>
+                icon = <StarIconFull className="w-12 h-12 text-rose-500 shadow-2xl z-10"/>
                 break
               case 'tour':
-                icon = <SunIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                icon = <SunIcon className="w-12 h-12 text-rose-500 shadow-2xl z-10"/>
                 break
               case 'night-life':
-                icon = <GlobeAltIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                icon = <GlobeAltIcon className="w-12 h-12 text-rose-500 shadow-2xl z-10"/>
                 break
             }
             return (
