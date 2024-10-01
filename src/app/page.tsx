@@ -3,11 +3,10 @@ import {StarIcon as StarIconFull} from "@heroicons/react/24/solid";
 import {
   Battery50Icon, GlobeAltIcon,
   RocketLaunchIcon,
-  StarIcon as StarIconEmpty,
   SunIcon,
   WalletIcon
 } from "@heroicons/react/24/outline";
-import {Metadata, ResolvingMetadata} from "next";
+import {Metadata} from "next";
 
 interface IProduct {
   id: string,
