@@ -7,7 +7,7 @@ import {
   WalletIcon
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
-import {randomNumber, randomNumberReviewScore} from "@/utils/number";
+import {randomNumber} from "@/utils/number";
 
 interface IProduct {
   id: string,
@@ -19,8 +19,22 @@ interface IProduct {
   srcSet: string,
 }
 
+interface ICategory {
+  id: string,
+  name: string,
+  slug: string,
+  icon: string,
+  image: string,
+  srcSet: string,
+}
+
 async function getBestIslands() {
   const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/best-islands.json');
+  return res.json();
+}
+
+async function getCategories() {
+  const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/categories.json');
   return res.json();
 }
 
@@ -42,6 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const bestIslands: IProduct[] = await getBestIslands();
+  const categories: ICategory[] = await getCategories();
   return (
     <>
       <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
@@ -61,12 +76,10 @@ export default async function Home() {
               'name': bestIsland?.name,
               'keywords': bestIsland?.name + ' เกาะในไทย เที่ยวไทย',
               'image': bestIsland?.image,
-              'review': {
-
-              },
+              'review': {},
               "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": randomNumberReviewScore(),
+                "ratingValue": randomNumber(5),
                 "reviewCount": randomNumber(20)
               },
               "offers": {
@@ -118,71 +131,42 @@ export default async function Home() {
           </button>
         </div>
         <div className={`flex flex-wrap md:flex-nowrap gap-6 md:gap-6 py-4 justify-center md:justify-between w-[88%]`}>
-          <div className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-            <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=240&amp;h=320&amp;q=80"/>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <WalletIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
-            </div>
-            <div className="absolute bottom-1 md:bottom-4 inset-x-0 flex flex-col items-center justify-center">
-              <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Islands</h3>
-            </div>
-          </div>
-          <div className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-            <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=240&amp;h=320&amp;q=80"/>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <Battery50Icon className="w-12 h-12 text-white shadow-2xl z-10"/>
-            </div>
-            <div className="absolute bottom-1 md:bottom-4 inset-x-0 flex flex-col items-center justify-center">
-              <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">City</h3>
-            </div>
-          </div>
-          <div className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-            <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=240&amp;h=320&amp;q=80"/>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <RocketLaunchIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
-            </div>
-            <div className="absolute bottom-1 md:bottom-4 inset-x-0 flex flex-col items-center justify-center">
-              <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Health</h3>
-            </div>
-          </div>
-          <div className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-            <Image
-              width={240}
-              height={320}
-              alt="Ta Chai Islands"
-              className="rounded-xl shadow-xl bg-white"
-              src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=240&amp;h=320&amp;q=80"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <StarIconFull className="w-12 h-12 text-white shadow-2xl z-10"/>
-            </div>
-            <div className="absolute bottom-1 md:bottom-4 inset-x-0 flex flex-col items-center justify-center">
-              <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Adventure</h3>
-            </div>
-          </div>
-          <div className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-            <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=240&amp;h=320&amp;q=80"/>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <SunIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
-            </div>
-            <div className="absolute bottom-1 md:bottom-4 inset-x-0 flex flex-col items-center justify-center">
-              <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Tour</h3>
-            </div>
-          </div>
-          <div className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-            <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=240&amp;h=320&amp;q=80"/>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <GlobeAltIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
-            </div>
-            <div className="absolute bottom-1 md:bottom-4 inset-x-0 flex flex-col items-center justify-center">
-              <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md mt-4">Night Life</h3>
-            </div>
-          </div>
+          {categories?.map((category) => {
+            let icon;
+            switch (category.slug) {
+              case 'islands':
+                icon = <WalletIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                break
+              case 'city':
+                icon = <Battery50Icon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                break
+              case 'health':
+                icon = <RocketLaunchIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                break
+              case 'adventure':
+                icon = <StarIconFull className="w-12 h-12 text-white shadow-2xl z-10"/>
+                break
+              case 'tour':
+                icon = <SunIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                break
+              case 'night-life':
+                icon = <GlobeAltIcon className="w-12 h-12 text-white shadow-2xl z-10"/>
+                break
+            }
+            return (
+              <div key={category.id} className="w-1/4 md:w-[12%] lg:w-1/6 relative">
+                <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
+                       src={category.image}/>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  {icon}
+                </div>
+                <div
+                  className="absolute bottom-1 md:bottom-3 inset-x-0 flex flex-col items-center justify-center  bg-gray-100 drop-shadow-2xl px-2 opacity-80">
+                  <h3 className="font-xs font-bold text-nowrap">{category.name}</h3>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
       <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
