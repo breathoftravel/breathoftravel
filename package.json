@@ -12,8 +12,8 @@
     "@heroicons/react": "^2.1.5",
     "keen-slider": "^6.8.6",
     "next": "^15.0.0-rc.0",
-    "react": "^19.0.0-rc-04bd67a4-20240924",
-    "react-dom": "^19.0.0-rc-04bd67a4-20240924"
+    "react": "^19.0.0-rc-fb9a90fa48-20240614",
+    "react-dom": "^19.0.0-rc-fb9a90fa48-20240614"
   },
   "devDependencies": {
     "@types/node": "^20",

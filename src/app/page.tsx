@@ -7,8 +7,31 @@ import {
   SunIcon,
   WalletIcon
 } from "@heroicons/react/24/outline";
+import {Metadata, ResolvingMetadata} from "next";
 
-export default function Home() {
+interface IProduct {
+  id: string,
+  name: string,
+  description: string,
+  price: number,
+  promotionPrice: number,
+  image: string,
+  srcSet: string,
+}
+
+async function getBestIslands() {
+  const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/best-islands.json');
+  return res.json();
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Breath of travel',
+  }
+}
+
+export default async function Home() {
+  const bestIslands: IProduct[] = await getBestIslands();
   return (
     <>
       <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
@@ -19,59 +42,35 @@ export default function Home() {
           Thailand Island Guide: The Most Beautiful Islands.
         </h2>
         <div className={`flex flex-wrap md:flex-nowrap gap-6 md:gap-6 py-4 justify-center md:justify-between w-[88%]`}>
-          <div className={`w-1/3 md:w-1/5 lg:w-1/4`}>
-            <Image width={360} height={480} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=360&amp;h=480&amp;q=80"/>
-            <h3 className={`font-bold`}>Similan Islands</h3>
-            <div className={`flex`}>
-              {Array(5).fill(undefined).map((_, index) => (
-                <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
-              ))}
-            </div>
-            <p className={`text-sm text-gray-500 dark:text-gray-200 whitespace-normal`}>Hello world,Your are ready to
-              pay lol...</p>
-            <p className={`font-bold text-lg`}>฿1,000</p>
-          </div>
-          <div className={`w-1/3 md:w-1/5 lg:w-1/4`}>
-            <Image width={360} height={480} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=360&amp;h=480&amp;q=80"/>
-            <h3 className={`font-bold`}>Phi Phi Islands</h3>
-            <div className={`flex`}>
-              {Array(4).fill(undefined).map((_, index) => (
-                <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
-              ))}
-              <StarIconEmpty className="size-5 text-gray-800 shadow-2xl"/>
-            </div>
-            <p className={`text-sm text-gray-500 dark:text-gray-200 whitespace-normal`}>Hello world,Your are ready to
-              pay lol...</p>
-            <p className={`font-bold text-lg`}>฿1,000</p>
-          </div>
-          <div className={`w-1/3 md:w-1/5 lg:w-1/4`}>
-            <Image width={360} height={480} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=360&amp;h=480&amp;q=80"/>
-            <h3 className={`font-bold`}>Lipe Islands</h3>
-            <div className={`flex`}>
-              {Array(5).fill(undefined).map((_, index) => (
-                <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
-              ))}
-            </div>
-            <p className={`text-sm text-gray-500 dark:text-gray-200 whitespace-normal`}>Hello world,Your are ready to
-              pay lol...</p>
-            <p className={`font-bold text-lg`}>฿1,000</p>
-          </div>
-          <div className={`w-1/3 md:w-1/5 lg:w-1/4`}>
-            <Image width={360} height={480} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
-                   src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=360&amp;h=480&amp;q=80"/>
-            <h3 className={`font-bold`}>Ta Chai Islands</h3>
-            <div className={`flex`}>
-              {Array(5).fill(undefined).map((_, index) => (
-                <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
-              ))}
-            </div>
-            <p className={`text-sm text-gray-500 dark:text-gray-200 whitespace-normal`}>Hello world,Your are ready to
-              pay lol...</p>
-            <p className={`font-bold text-lg`}>฿1,000</p>
-          </div>
+          {bestIslands?.map((bestIsland) => {
+            const jsonLd = {
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              'name': bestIsland?.name,
+            };
+            return (
+              <div key={bestIsland.id} className={`w-1/3 md:w-1/5 lg:w-1/4`}>
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+                />
+                <Image width={360} height={480}
+                       alt={`Star rating`}
+                       className="rounded-xl shadow-xl bg-white"
+                       src={bestIsland.image}/>
+                <h3 className={`font-bold`}>{bestIsland.name}</h3>
+                <div className={`flex`}>
+                  {Array(5).fill(undefined).map((_, index) => (
+                    <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
+                  ))}
+                </div>
+                <p className={`text-sm text-gray-500 dark:text-gray-200 whitespace-normal`}>
+                  {bestIsland.description}
+                </p>
+                <p className={`font-bold text-lg`}>{bestIsland.price}</p>
+              </div>
+            )
+          })}
         </div>
         <div className={`flex`}>
           <button
