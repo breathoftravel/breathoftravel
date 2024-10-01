@@ -1,8 +1,8 @@
 'use client'
-import WhatsAppIcon from "@/components/icons/whatsapp";
+import WhatsAppIcon from "@/components/icons/Whatsapp";
 import { useState } from "react";
-import LineIcon from "@/components/icons/line";
-import FacebookIcon from "@/components/icons/facebook";
+import LineIcon from "@/components/icons/Line";
+import FacebookIcon from "@/components/icons/Facebook";
 
 interface ContactProp {
   message?: string

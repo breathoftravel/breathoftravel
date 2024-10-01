@@ -1,6 +1,6 @@
 import ImageCarousel from "@/components/sections/ImageCarousel/page";
 import Breadcrumbs from "@/components/breadcrumb/page";
-import ContactIndex from "@/components/products/contact/page";
+import ContactIndex from "@/components/products/Contact/page";
 import {
   CheckIcon, ClockIcon,
   PhotoIcon,

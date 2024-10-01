@@ -7,6 +7,8 @@ import {
   WalletIcon
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
+import ImageCarousel from "@/components/sections/ImageCarousel/page";
+import BackgroundImage from "@/components/sections/BackgroundImage";
 
 interface IProduct {
   id: string,
@@ -26,6 +28,16 @@ async function getBestIslands() {
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Breath of travel',
+    description: 'ทัวร์ภูเก็ต เกาะสิมิลัน เกาะตาชัย เกาะลันตา มากับเราละมั้ง',
+    keywords: ["ทะเล", "ทะเลใต้", "ที่เที่ยวทะเล", "ที่เที่ยวสวย", "ที่เที่ยวหน้าร้อน", "ที่เที่ยวไทยสวยๆ", "รวมที่เที่ยว", "รวมที่เที่ยวไทย", "เกาะ", "เกาะสวยภาคใต้", "เที่ยวไทย"],
+    openGraph: {
+      type: "website",
+      url: "https://breathoftravel.vercel.app/",
+      title: "Breath of travel",
+      description: 'ทัวร์ภูเก็ต เกาะสิมิลัน เกาะตาชัย เกาะลันตา มากับเราละมั้ง',
+      siteName: "Breath of travel",
+      images: [{url: "https://breathoftravel.vercel.app/static/image/banner.webp",}],
+    }
   }
 }
 
@@ -33,6 +45,7 @@ export default async function Home() {
   const bestIslands: IProduct[] = await getBestIslands();
   return (
     <>
+      <BackgroundImage/>
       <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
         <h1 className="text-center font-bold text-2xl leading-tight">
           Best Islands in Thailand.

@@ -1,5 +1,5 @@
 import GridCard from "@/components/search/GridCard";
-import Filter from "@/components/search/filter";
+import Filter from "@/components/search/Filter";
 
 export default function SearchPage() {
   const renderCards = () => {
