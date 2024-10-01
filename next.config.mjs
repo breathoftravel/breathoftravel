@@ -22,7 +22,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'breathoftravels.netlify.app',
+                hostname: 'breathoftravel.vercel.app',
                 port: '',
                 pathname: '**',
             },
