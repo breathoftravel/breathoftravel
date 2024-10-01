@@ -96,7 +96,7 @@ export default async function Home() {
                   dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
                 />
                 <Image width={320} height={480}
-                       alt={`Star rating`}
+                       alt={bestIsland.name}
                        className="rounded-xl shadow-xl bg-white"
                        src={bestIsland.image}/>
                 <h3 className={`font-bold`}>{bestIsland.name}</h3>
@@ -155,7 +155,8 @@ export default async function Home() {
             }
             return (
               <div key={category.id} className="w-1/4 md:w-[12%] lg:w-1/6 relative">
-                <Image width={240} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
+                <Image width={240} height={320} alt={category.name}
+                       className="rounded-xl shadow-xl bg-white"
                        src={category.image}/>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   {icon}
