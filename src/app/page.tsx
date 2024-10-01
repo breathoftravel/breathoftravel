@@ -7,7 +7,6 @@ import {
   WalletIcon
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
-import BackgroundImage from "@/components/sections/BackgroundImage";
 import {randomNumber, randomNumberReviewScore} from "@/utils/number";
 
 interface IProduct {
@@ -45,7 +44,6 @@ export default async function Home() {
   const bestIslands: IProduct[] = await getBestIslands();
   return (
     <>
-      <BackgroundImage/>
       <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
         <h1 className="text-center font-bold text-2xl leading-tight">
           Best Islands in Thailand.
