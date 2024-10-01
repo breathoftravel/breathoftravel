@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
 import BackgroundImage from "@/components/sections/BackgroundImage";
+import {randomNumber, randomNumberReviewScore} from "@/utils/number";
 
 interface IProduct {
   id: string,
@@ -31,11 +32,11 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: ["ทะเล", "ทะเลใต้", "ที่เที่ยวทะเล", "ที่เที่ยวสวย", "ที่เที่ยวหน้าร้อน", "ที่เที่ยวไทยสวยๆ", "รวมที่เที่ยว", "รวมที่เที่ยวไทย", "เกาะ", "เกาะสวยภาคใต้", "เที่ยวไทย"],
     openGraph: {
       type: "website",
-      url: "https://breathoftravel.vercel.app/",
+      url: "https://breathoftravels.vercel.app/",
       title: "Breath of travel",
       description: 'ทัวร์ภูเก็ต เกาะสิมิลัน เกาะตาชัย เกาะลันตา มากับเราละมั้ง',
       siteName: "Breath of travel",
-      images: [{url: "https://breathoftravel.vercel.app/static/image/banner.webp",}],
+      images: [{url: "https://breathoftravels.vercel.app/static/image/banner.webp",}],
     }
   }
 }
@@ -49,23 +50,41 @@ export default async function Home() {
         <h1 className="text-center font-bold text-2xl leading-tight">
           Best Islands in Thailand.
         </h1>
-        <h2 className="font-medium text-lg">
+        <h2 className="font-semibold text-base px-2">
           Thailand Island Guide: The Most Beautiful Islands.
         </h2>
-        <div className={`flex flex-wrap md:flex-nowrap gap-6 md:gap-6 py-4 justify-center md:justify-between w-[88%]`}>
+        <div className={`flex flex-wrap md:flex-nowrap gap-6 py-4 justify-center md:justify-between w-[90%]`}>
           {bestIslands?.map((bestIsland) => {
             const jsonLd = {
               '@context': 'https://schema.org',
               '@type': 'Product',
+              'productId': bestIsland.id,
+              'sku': bestIsland.id,
               'name': bestIsland?.name,
+              'keywords': bestIsland?.name + ' เกาะในไทย เที่ยวไทย',
+              'image': bestIsland?.image,
+              'review': {
+
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": randomNumberReviewScore(),
+                "reviewCount": randomNumber(20)
+              },
+              "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "price": bestIsland.price,
+                "priceCurrency": "THB"
+              },
             };
             return (
-              <div key={bestIsland.id} className={`w-1/3 md:w-1/5 lg:w-1/4`}>
+              <div key={bestIsland.id} className={`w-5/12 md:w-1/5 lg:w-1/4`}>
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
                 />
-                <Image width={360} height={480}
+                <Image width={320} height={480}
                        alt={`Star rating`}
                        className="rounded-xl shadow-xl bg-white"
                        src={bestIsland.image}/>
@@ -75,7 +94,7 @@ export default async function Home() {
                     <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
                   ))}
                 </div>
-                <p className={`text-sm text-gray-500 dark:text-gray-200 whitespace-normal`}>
+                <p className={`text-sm whitespace-normal`}>
                   {bestIsland.description}
                 </p>
                 <p className={`font-bold text-lg`}>{bestIsland.price}</p>

@@ -20,6 +20,12 @@ const nextConfig = {
                 port: '',
                 pathname: '**',
             },
+            {
+                protocol: 'https',
+                hostname: 'breathoftravels.netlify.app',
+                port: '',
+                pathname: '**',
+            },
         ],
     },
 };

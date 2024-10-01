@@ -8,7 +8,7 @@ export default function BackgroundImage() {
         alt="Background image"
         width={1280}
         height={720}
-        className="object-cover w-full max-h-[498px]"
+        className="object-cover w-full max-h-[720px]"
       />
     </section>
   )
