@@ -1,0 +1,8 @@
+User-agent: AhrefsBot
+User-agent: MJ12bot
+User-agent: BLEXBot
+User-agent: YakazBot
+User-agent: proximic
+User-agent: rogerbot
+User-agent: SemrushBot
+Disallow: /

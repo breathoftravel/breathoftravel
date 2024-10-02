@@ -29,7 +29,7 @@ export default function SearchPage() {
         "itemListElement": pricesJsonLd
       };
       return (
-        <div key={index} className={`col-span-12 lg:col-span-6 xl:col-span-4 rounded-lg`}>
+        <div key={index} className={`col-span-6 lg:col-span-6 xl:col-span-4 rounded-lg`}>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
@@ -58,7 +58,7 @@ export default function SearchPage() {
           <div className="col-span-4 xl:col-span-3 rounded-lg hidden lg:block">
             <Filter/>
           </div>
-          <div className="col-span-8 xl:col-span-9">
+          <div className="col-span-12 md:col-span-8 xl:col-span-9">
             <div className={`grid grid-cols-12 gap-4`}>
               {renderCards()}
             </div>
