@@ -17,21 +17,23 @@ export default function GridCard({product}:{product:TProduct}) {
       </figure>
       <div className="card-body">
         <div className="flex justify-between items-center">
-          <h3 className="card-title">
+          <h3 className="card-title text-warp">
             {product.name}
-            <div className="badge badge-secondary">NEW</div>
           </h3>
+        </div>
+        <div className={`flex`}>
+          <div className="badge badge-secondary">NEW</div>
           <div className="badge badge-outline">{randomHalfNumber()}
             <StarIcon width={16} height={16} className={`ml-1 text-orange-400`}/> ({randomNumber(40)})
           </div>
         </div>
-        <p>{product.description}</p>
+        <p>{product.description.substring(0,50)}</p>
         <div className="card-actions justify-end">
           <div className="badge badge-outline">{product.type}</div>
           <div className="badge badge-outline">Products</div>
         </div>
         <div className="flex justify-end items-center">
-          {formatCurrency(product.prices?.shift()?.adult || 0)}
+          {formatCurrency(product.prices[0]?.adult || 0)}
           <Link ref={`nofollow`} className="ml-2 btn btn-square btn-sm btn-error btn-outline" href={`/product/${product.id}`}
              target={`_blank`}>
             <BookOpenIcon width={18} height={18} className={`hover:text-white`}/>
