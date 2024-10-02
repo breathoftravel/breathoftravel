@@ -7,13 +7,13 @@ import {IPrice, TProduct} from "@/app/search/[[...slug]]/page";
 export default function SearchPage() {
   const {products, page} = useSearchContext()
   const renderCards = () => {
-    return products?.map((product: TProduct, index) => {
+    return products?.map((product: TProduct) => {
       const pricesJsonLd = product?.prices?.map((price: IPrice) => {
         return {
           "@type": "Product",
           "image": "https://breathoftravel.vercel.app/static/image/category.webp",
-          "url": window.location.href,
-          "name": "Brand 502",
+          "url": "https://breathoftravel.vercel.app/search",
+          "name": product.name,
           "offers": {
             "@type": "Offer",
             "priceCurrency": "THB",
@@ -24,12 +24,12 @@ export default function SearchPage() {
       const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "url": window.location.href,
+        "url": "https://breathoftravel.vercel.app/search",
         "numberOfItems": 20,
         "itemListElement": pricesJsonLd
       };
       return (
-        <div key={index} className={`col-span-6 lg:col-span-6 xl:col-span-4 rounded-lg`}>
+        <div key={product.id} className={`col-span-6 lg:col-span-6 xl:col-span-4 rounded-lg`}>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}

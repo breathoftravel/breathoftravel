@@ -1,6 +1,7 @@
 import SearchPage from "@/components/search/page";
 import {Metadata} from "next";
 import SearchProvider from "@/providers/SearchProvider";
+import {Suspense} from "react";
 
 export type TProduct = {
   "id": string,
@@ -46,6 +47,8 @@ export default async function Page({params}: { params: { slug: string[] } }) {
   console.log(params);
   return (
     <SearchProvider init={{page: 1, products: products.slice(0, 15)}}>
-      <SearchPage/>
+      <Suspense fallback={<>Loading</>}>
+        <SearchPage/>
+      </Suspense>
     </SearchProvider>)
 }
