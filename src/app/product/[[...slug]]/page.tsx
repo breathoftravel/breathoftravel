@@ -10,7 +10,7 @@ import {
   XMarkIcon
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import {Metadata} from "next";
+import {Metadata, ResolvingMetadata} from "next";
 import {IPrice, TProduct} from "@/app/search/[[...slug]]/page";
 
 // Fetching product data (mock function, replace with actual data fetching logic)
@@ -18,19 +18,30 @@ async function fetchProducts() {
   const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/product.json');
   return res.json();
 }
+type Props = {
+  params: { slug: string[] }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const products = await fetchProducts()
+  const product = products.find((product: TProduct) => product.id === params.slug[0]);
+  const previousImages = (await parent).openGraph?.images || []
+  const description = Array.isArray(searchParams) ? searchParams : [];
   return {
-    title: 'product | Breath of travel',
-    description: 'ทัวร์ภูเก็ต เกาะสิมิลัน เกาะตาชัย เกาะลันตา มากับเราละมั้ง',
-    keywords: ["ทะเล", "ทะเลใต้", "ที่เที่ยวทะเล", "ที่เที่ยวสวย", "ที่เที่ยวหน้าร้อน", "ที่เที่ยวไทยสวยๆ", "รวมที่เที่ยว", "รวมที่เที่ยวไทย", "เกาะ", "เกาะสวยภาคใต้", "เที่ยวไทย"],
+    title: `${product.name} | Breath of travel`,
+    description: `สัมผัสประสบการณ์ดำน้ำกับ ${product.name} ของเรา`,
+    keywords: ["ทะเล", "ทะเลใต้", "ที่เที่ยวทะเล", "ที่เที่ยวสวย", "ที่เที่ยวหน้าร้อน", "ที่เที่ยวไทยสวยๆ", "รวมที่เที่ยว", "รวมที่เที่ยวไทย", "เกาะ", "เกาะสวยภาคใต้", "เที่ยวไทย", ...description],
     openGraph: {
       type: "website",
       url: "https://breathoftravel.vercel.app/",
-      title: 'Search product | Breath of travel',
-      description: 'ทัวร์ภูเก็ต เกาะสิมิลัน เกาะตาชัย เกาะลันตา มากับเราละมั้ง',
+      title: `${product.name} | Breath of travel`,
+      description: `สัมผัสประสบการณ์ดำน้ำกับ ${product.name} ของเรา`,
       siteName: "Breath of travel",
-      images: [{url: "https://breathoftravel.vercel.app/static/image/banner.webp",}],
+      images: [{url: "https://breathoftravel.vercel.app/static/image/banner.webp"},...previousImages],
     }
   }
 }
@@ -185,43 +196,43 @@ export default async function Page({params}: { params: { slug: string } }) {
         <div className="carousel carousel-center p-4 space-x-4 rounded-box">
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
@@ -230,43 +241,43 @@ export default async function Page({params}: { params: { slug: string } }) {
         <div className="carousel carousel-center p-4 space-x-4 rounded-box">
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg"
+              src="https://breathoftravel.vercel.app/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>

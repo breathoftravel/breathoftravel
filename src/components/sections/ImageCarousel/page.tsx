@@ -79,7 +79,7 @@ export default function ImageCarousel() {
               {numbers.map((number, index) => (
                 <div key={index} className={`keen-slider__slide number-slide${number}`}>
                   <Image
-                    src={`/image-not-found.png`} // Adjust image path based on your directory structure
+                    src={`/static/image/image-not-found.webp`} // Adjust image path based on your directory structure
                     alt={`Slide ${index + 1} image`}
                     width={600} // Adjust image dimensions as needed
                     height={300}
@@ -93,7 +93,7 @@ export default function ImageCarousel() {
               {numbers.map((number, index) => (
                 <div key={index} className={`keen-slider__slide number-slide${number}`}>
                   <Image
-                    src={`/image-not-found.png`} // Adjust image path based on your directory structure
+                    src={`/static/image/image-not-found.webp`} // Adjust image path based on your directory structure
                     alt={`Slide ${index + 1} image`}
                     width={60} // Adjust image dimensions as needed
                     height={30}
