@@ -5,4 +5,5 @@ User-agent: YakazBot
 User-agent: proximic
 User-agent: rogerbot
 User-agent: SemrushBot
-Disallow: /
+Allow: /
+
