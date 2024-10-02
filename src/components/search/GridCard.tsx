@@ -34,7 +34,7 @@ export default function GridCard({product}:{product:TProduct}) {
         </div>
         <div className="flex justify-end items-center">
           {formatCurrency(product.prices[0]?.adult || 0)}
-          <Link ref={`nofollow`} className="ml-2 btn btn-square btn-sm btn-error btn-outline" href={`/product/${product.id}`}
+          <Link className="ml-2 btn btn-square btn-sm btn-error btn-outline" href={`/product/${product.id}`}
              target={`_blank`}>
             <BookOpenIcon width={18} height={18} className={`hover:text-white`}/>
           </Link>
