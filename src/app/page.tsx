@@ -7,7 +7,8 @@ import {
   WalletIcon
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
-import {randomNumber} from "@/utils/number";
+import {randomHalfNumber, randomNumber} from "@/utils/number";
+import {generateISO8601Date} from "@/utils/date";
 
 interface IProduct {
   id: string,
@@ -79,14 +80,16 @@ export default async function Home() {
               'review': {},
               "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": randomNumber(5),
-                "reviewCount": randomNumber(20)
+                "ratingValue": randomHalfNumber(5),
+                "reviewCount": randomNumber(20),
+                "bestRating": 5
               },
               "offers": {
                 "@type": "Offer",
                 "availability": "https://schema.org/InStock",
                 "price": bestIsland.price,
-                "priceCurrency": "THB"
+                "priceCurrency": "THB",
+                "priceValidUntil": generateISO8601Date('2024-09-02')
               },
             };
             return (
