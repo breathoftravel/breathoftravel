@@ -8,7 +8,6 @@ import {
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
 import {randomHalfNumber, randomNumber} from "@/utils/number";
-import {generateISO8601Date} from "@/utils/date";
 
 interface IProduct {
   id: string,
@@ -89,7 +88,7 @@ export default async function Home() {
                 "availability": "https://schema.org/InStock",
                 "price": bestIsland.price,
                 "priceCurrency": "THB",
-                "priceValidUntil": generateISO8601Date('2024-09-02')
+                "priceValidUntil": '2024-09-02'
               },
             };
             return (

@@ -3,9 +3,11 @@ import GridCard from "@/components/search/GridCard";
 import Filter from "@/components/search/Filter";
 import {useSearchContext} from "@/hooks/context/SearchContext";
 import {IPrice, TProduct} from "@/app/search/[[...slug]]/page";
+import Pagination from "@/components/pagination";
+import {Suspense} from "react";
 
 export default function SearchPage() {
-  const {products, page} = useSearchContext()
+  const {products, page, setPage} = useSearchContext()
   const renderCards = () => {
     return products?.map((product: TProduct) => {
       const pricesJsonLd = product?.prices?.map((price: IPrice) => {
@@ -34,7 +36,7 @@ export default function SearchPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
           />
-          <GridCard product={product} />
+          <GridCard product={product}/>
         </div>
       )
     });
@@ -60,19 +62,16 @@ export default function SearchPage() {
           </div>
           <div className="col-span-12 md:col-span-8 xl:col-span-9">
             <div className={`grid grid-cols-12 gap-4`}>
-              {renderCards()}
+              <Suspense fallback={<>Loading</>}>
+                {renderCards()}
+              </Suspense>
             </div>
-            <div className={`flex items-center justify-center mt-5`}>
-              <div className=" join">
-                <button className="join-item btn">First</button>
-                <button className={`join-item btn ${page === 1 ? 'active' : ''}`}>1</button>
-                <button className="join-item btn">2</button>
-                <button className="join-item btn btn-disabled">...</button>
-                <button className="join-item btn">99</button>
-                <button className="join-item btn">100</button>
-                <button className="join-item btn">Last</button>
-              </div>
-            </div>
+            <Pagination
+              totalItems={20}
+              itemsPerPage={15}
+              currentPage={page}
+              onPageChange={(page: number) => setPage(page)}
+            />
           </div>
         </div>
       </div>

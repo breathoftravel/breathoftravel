@@ -1,7 +1,6 @@
 import {BookOpenIcon, StarIcon} from "@heroicons/react/24/solid";
 import Image from "next/image";
 import {TProduct} from "@/app/search/[[...slug]]/page";
-import {randomHalfNumber, randomNumber} from "@/utils/number";
 import {formatCurrency} from "@/utils/currency";
 import Link from "next/link";
 
@@ -23,8 +22,8 @@ export default function GridCard({product}:{product:TProduct}) {
         </div>
         <div className={`flex`}>
           <div className="badge badge-secondary">NEW</div>
-          <div className="badge badge-outline">{randomHalfNumber()}
-            <StarIcon width={16} height={16} className={`ml-1 text-orange-400`}/> ({randomNumber(40)})
+          <div className="badge badge-outline">{4.5}
+            <StarIcon width={16} height={16} className={`ml-1 text-orange-400`}/> (30)
           </div>
         </div>
         <p>{product.description.substring(0,150)}</p>
