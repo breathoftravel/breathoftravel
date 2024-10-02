@@ -18,7 +18,7 @@ export default function GridCard({product}:{product:TProduct}) {
       <div className="card-body">
         <div className="flex justify-between items-center">
           <h3 className="card-title text-warp">
-            {product.name}
+            {product.name.substring(0,45)}
           </h3>
         </div>
         <div className={`flex`}>
@@ -27,7 +27,7 @@ export default function GridCard({product}:{product:TProduct}) {
             <StarIcon width={16} height={16} className={`ml-1 text-orange-400`}/> ({randomNumber(40)})
           </div>
         </div>
-        <p>{product.description.substring(0,50)}</p>
+        <p>{product.description.substring(0,150)}</p>
         <div className="card-actions justify-end">
           <div className="badge badge-outline">{product.type}</div>
           <div className="badge badge-outline">Products</div>
