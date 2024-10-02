@@ -21,7 +21,8 @@ export type IPrice = {
 }
 
 // Fetching product data (mock function, replace with actual data fetching logic)
-async function fetchProducts() {
+async function fetchProducts(slug: string[]) {
+  if (slug?.length < 0) {return []}
   const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/product.json');
   return res.json();
 }
@@ -43,8 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page({params}: { params: { slug: string[] } }) {
-  const products: TProduct[] = await fetchProducts();
-  console.log(params);
+  const products: TProduct[] = await fetchProducts(params.slug);
   return (
     <SearchProvider init={{page: 1, products: products.slice(0, 15)}}>
       <Suspense fallback={<>Loading</>}>
