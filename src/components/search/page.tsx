@@ -1,13 +1,43 @@
+'use client';
 import GridCard from "@/components/search/GridCard";
 import Filter from "@/components/search/Filter";
+import {useSearchContext} from "@/hooks/context/SearchContext";
+import {IPrice, TProduct} from "@/app/search/[[...slug]]/page";
 
 export default function SearchPage() {
+  const {products, page} = useSearchContext()
   const renderCards = () => {
-    return Array.from({length: 15}).map((_, index) => (
-      <div key={index} className={`col-span-12 lg:col-span-6 xl:col-span-4 rounded-lg`}>
-        <GridCard/>
-      </div>
-    ));
+    return products?.map((product: TProduct, index) => {
+      const pricesJsonLd = product?.prices?.map((price: IPrice) => {
+        return {
+          "@type": "Product",
+          "image": "https://breathoftravel.vercel.app/static/image/category.webp",
+          "url": window.location.href,
+          "name": "Brand 502",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "THB",
+            "price": price.adult.toFixed(2) || 0.00,
+          }
+        }
+      })
+      const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "url": window.location.href,
+        "numberOfItems": 20,
+        "itemListElement": pricesJsonLd
+      };
+      return (
+        <div key={index} className={`col-span-12 lg:col-span-6 xl:col-span-4 rounded-lg`}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+          />
+          <GridCard product={product} />
+        </div>
+      )
+    });
   };
   return (
     <>
@@ -35,7 +65,7 @@ export default function SearchPage() {
             <div className={`flex items-center justify-center mt-5`}>
               <div className=" join">
                 <button className="join-item btn">First</button>
-                <button className="join-item btn">1</button>
+                <button className={`join-item btn ${page === 1 ? 'active' : ''}`}>1</button>
                 <button className="join-item btn">2</button>
                 <button className="join-item btn btn-disabled">...</button>
                 <button className="join-item btn">99</button>

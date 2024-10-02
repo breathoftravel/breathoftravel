@@ -66,7 +66,7 @@ export default async function Home() {
         <h2 className="font-semibold text-base px-2">
           Thailand Island Guide: The Most Beautiful Islands.
         </h2>
-        <div className={`flex flex-wrap md:flex-nowrap gap-6 py-4 justify-center md:justify-between w-[90%]`}>
+        <div className={`flex flex-wrap md:flex-nowrap gap-6 py-4 justify-center md:justify-between`}>
           {bestIslands?.map((bestIsland) => {
             const jsonLd = {
               '@context': 'https://schema.org',
@@ -130,7 +130,7 @@ export default async function Home() {
             View All
           </button>
         </div>
-        <div className={`flex flex-wrap md:flex-nowrap gap-6 md:gap-6 py-4 justify-center md:justify-between w-[88%]`}>
+        <div className={`flex flex-wrap md:flex-nowrap gap-6 md:gap-6 py-4 justify-center md:justify-between`}>
           {categories?.map((category) => {
             let icon;
             switch (category.slug) {
@@ -154,7 +154,7 @@ export default async function Home() {
                 break
             }
             return (
-              <div key={category.id} className="w-1/4 md:w-[12%] lg:w-1/6 relative">
+              <div key={category.id} className="w-1/4 md:w-1/6 relative">
                 <Image width={240} height={320} alt={category.name}
                        className="rounded-xl shadow-xl bg-white"
                        src={category.image}/>
@@ -180,8 +180,8 @@ export default async function Home() {
             View All
           </button>
         </div>
-        <div className={`flex flex-wrap gap-2 md:gap-6 py-4 justify-center `}>
-          <div className="w-[80%] md:w-[91%] lg:w-full relative">
+        <div className={`flex flex-nowrap py-2 justify-center `}>
+          <div className="w-10/12 md:w-11/12 lg:w-full relative mx-2">
             <Image width={1280} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
                    src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1280&amp;h=320&amp;q=80"/>
             <div className="absolute bottom-1 md:bottom-4 left-1 flex flex-col items-center justify-center">
@@ -189,15 +189,15 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className={`flex flex-wrap gap-2 md:gap-6 py-4 justify-center `}>
-          <div className="w-[39%] md:w-[44%] lg:w-[48%] relative">
+        <div className={`flex flex-nowrap py-2 justify-center `}>
+          <div className="w-2/5 md:w-5/12 lg:w-6/12 relative m-1 md:m-2">
             <Image width={640} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
                    src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=640&amp;h=320&amp;q=80"/>
             <div className="absolute bottom-1 md:bottom-4 left-1 flex flex-col items-center justify-center">
               <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Hong Kong</h3>
             </div>
           </div>
-          <div className="w-[39%] md:w-[44%] lg:w-[48%] relative">
+          <div className="w-2/5 md:w-5/12 lg:w-6/12 relative m-1 md:m-2">
             <Image width={640} height={320} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
                    src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=640&amp;h=320&amp;q=80"/>
             <div className="absolute bottom-1 md:bottom-4 left-1 flex flex-col items-center justify-center">
@@ -205,8 +205,8 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className={`flex flex-wrap gap-2 md:gap-6 py-4 justify-center `}>
-          <div className="w-[25.33%] md:w-[30.3%] lg:w-[31%] relative">
+        <div className={`flex flex-nowrap gap-0 md:gap-2 py-2 justify-center `}>
+          <div className="w-3/12 md:w-1/3 relative m-2">
             <Image
               width={420}
               height={420}
@@ -218,14 +218,14 @@ export default async function Home() {
               <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Bali</h3>
             </div>
           </div>
-          <div className="w-[25.33%] md:w-[30.3%] lg:w-[31%] relative">
+          <div className="w-3/12 md:w-1/3 relative m-2">
             <Image width={420} height={420} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
                    src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=420&amp;h=420&amp;q=80"/>
             <div className="absolute bottom-1 md:bottom-4 left-1 flex flex-col items-center justify-center">
               <h3 className="font-xs font-bold text-nowrap text-white text-shadow-md">Tokyo</h3>
             </div>
           </div>
-          <div className="w-[25.33%] md:w-[30.3%] lg:w-[31%] relative">
+          <div className="w-3/12 md:w-1/3 relative m-2">
             <Image width={420} height={420} alt={`Star rating`} className="rounded-xl shadow-xl bg-white"
                    src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=420&amp;h=420&amp;q=80"/>
             <div className="absolute bottom-1 md:bottom-4 left-1 flex flex-col items-center justify-center">

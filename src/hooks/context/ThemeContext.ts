@@ -1,9 +1,9 @@
 import React, { ChangeEventHandler, useContext } from "react";
 
-export type Theme = "light" | "dark" | "system";
+export type Theme = "emerald" | "dark" | "system";
 
 export const themes: { [key: string]: Theme } = {
-  light: "light",
+  emerald: "emerald",
   dark: "dark",
 };
 

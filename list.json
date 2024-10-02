@@ -1,0 +1,425 @@
+[
+  {
+    "id": "019246a3-79fe-7975-9f3d-e000892dfe3f",
+    "name": "One day tour phuket to krabi sea by bigboat & speedboat",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2500,
+        "child": 1800
+      }
+    ],
+    "remark": "child 3-11 years",
+    "company": "Aonang travel & tour"
+  },
+  {
+    "id": "e007f1e5-79fe-7975-9f3d-e000892dfe3f",
+    "name": "Phuket luxury cruise yacht day trip",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1800,
+        "child": 1500
+      }
+    ],
+    "remark": "child 4-11 years",
+    "company": "Sea angel"
+  },
+  {
+    "id": "e007f1e6-79fe-7975-9f3d-e000892dfe3f",
+    "name": "One day trip Phi phi, maya, khai, bamboo",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 4200,
+        "child": 3500
+      }
+    ],
+    "remark": "",
+    "company": "d day marine"
+  },
+  {
+    "id": "e007f1e7-79fe-7975-9f3d-e000892dfe3f",
+    "name": "James bond island full day trip by big boat",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 3200,
+        "child": 2200
+      }
+    ],
+    "remark": "child 4-11 years",
+    "company": "sri thara marine"
+  },
+  {
+    "id": "019246a4-93f9-705b-83bf-f50214dfa5fd",
+    "name": "Phi phi maya & khai island one day trip by speed boat",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 3400,
+        "child": 2200
+      }
+    ],
+    "remark": "child 4-11 years",
+    "company": "andaman surprise"
+  },
+  {
+    "id": "019246a4-93f9-7093-a2e4-d19e5e970557",
+    "name": "Coral island kahung beach & sunset sailing yacht half day",
+    "type": "tour",
+    "description": "If you are looking for an afternoon Sunset Cruise, this package is a perfect Yacht Catamaran trip traveling by Sailing Yacht Catamaran. You will enjoy a leisurely sailing cruise with our experienced and friendly crew to Coral Island, which is a fun island.  Enjoy a leisurely sailing cruise in the south of Phuket with our experienced and friendly crew to a lovely island, which offers a beautiful spot for exploring an exciting underwater of big coral and many tropical fish.",
+    "itinerary": [
+      "12.00 - 13.00 PM Pick up from your hotel and transfer to Nikorn Marine’s welcome lobby at Chalong Pier",
+      "12.45 PM Meet our guide at Nikorn Marine’s office, Ao Chalong Pier",
+      "01.30 PM Depart for Kahung Beach (Coral Island)",
+      "02.15 PM Snorkeling mask prepared on board with SUP board and inflatable toy to explore fishes and coral reefs.",
+      "03.30 PM Spend quality time on the beach full of Great Hornbill all over the island, restaurant, beach bar and sea activities such as scuba diving, sea walking, parasailing, banana boating, SUP boarding and canoeing. (Additional fee)",
+      "05.00 PM Cruising to Promthep Cape and Thai dinner will be served onboard.",
+      "07.30 PM Arrive at Ao Chalong Pier and transfer back to your hotel"
+    ],
+    "include": [
+      {"name": "Dinner","slug": "dinner"},
+      {"name": "Fruits","slug": "fruits"},
+      {"name": "Soft Drink","slug": "soft-drink"},
+      {"name": "Beach Chair (Coral Island)","slug": "beach-chair"},
+      {"name": "Mask & Snorkel","slug": "mask-snorkel"},
+      {"name": "Life jacket","slug": "life-jacket"},
+      {"name": "Land Transfer","slug": "land-transfer"},
+      {"name": "Local guide","slug": "local-guide"},
+      {"name": "Accident Insurance","slug": "accident-insurance"}
+    ],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2900,
+        "child": 2100
+      }
+    ],
+    "remark": "child 4-11 years",
+    "company": "Nikorn marine"
+  },
+  {
+    "id": "019246a4-93f9-7558-8bad-55b93db00b43",
+    "name": "Raya & coral island full day trip by speed boat",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 800,
+        "child": 700
+      }
+    ],
+    "remark": "child 4-11 years",
+    "company": "tee nee andaman"
+  },
+  {
+    "id": "019246a4-93f9-7696-a0b6-d1ccec3fbecd",
+    "name": "Raya & scuba diving full day trip by speed boat",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 3500
+      }
+    ],
+    "remark": "child 4-11 years",
+    "company": "tee nee andaman"
+  },
+  {
+    "id": "019246a4-93f9-7373-9706-dad42a70f9d4",
+    "name": "Phuket fantasea Show and buffet dinner",
+    "type": "show",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2200,
+        "child": 2000
+      }
+    ],
+    "remark": "",
+    "company": "phuket fantasea"
+  },
+  {
+    "id": "019246a4-93f9-70bc-828b-d2647fba078b",
+    "name": "Phuket fantasea show only",
+    "type": "show",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1800,
+        "child": 1800
+      }
+    ],
+    "remark": "",
+    "company": "phuket fantasea"
+  },
+  {
+    "id": "019246a4-93f9-75fe-b53f-262eb88c5b2e",
+    "name": "Simon cabaret phuket Vip",
+    "type": "show",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1000,
+        "child": 1000
+      }
+    ],
+    "remark": "",
+    "company": "Simon cabaret"
+  },
+  {
+    "id": "019246a4-93f9-7242-9c0a-15134efd2525",
+    "name": "Simon cabaret phuket Regular",
+    "type": "show",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 800,
+        "child": 800
+      }
+    ],
+    "remark": "",
+    "company": "Simon cabaret"
+  },
+  {
+    "id": "019246a4-93f9-779e-a0e9-141d4a6cb216",
+    "name": "Carnival magic Park Admission and buffet dinner",
+    "type": "show",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2500,
+        "child": 2400
+      }
+    ],
+    "remark": "",
+    "company": "Carnival magic"
+  },
+  {
+    "id": "019246a4-93f9-79a8-99fd-53e1f04058a6",
+    "name": "Carnival magic Park Admission only",
+    "type": "show",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2100,
+        "child": 2100
+      }
+    ],
+    "remark": "",
+    "company": "Simon cabaret"
+  },
+  {
+    "id": "019246a4-93f9-78a1-9f36-a95cd6819fd4",
+    "name": "Jungle seaview elephant trekking 30 min",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1000,
+        "child": 700
+      }
+    ],
+    "remark": "",
+    "company": "Camp chang kalim"
+  },
+  {
+    "id": "019246a4-93f9-7810-a929-6f5c2a0bddb3",
+    "name": "Jungle seaview elephant trekking 45 min",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1200,
+        "child": 800
+      }
+    ],
+    "remark": "",
+    "company": "Camp chang kalim"
+  },
+  {
+    "id": "019246a4-93f9-738c-9106-b7db44709192",
+    "name": "Jungle seaview elephant trekking 60 min",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1500,
+        "child": 900
+      }
+    ],
+    "remark": "",
+    "company": "Camp chang kalim"
+  },
+  {
+    "id": "019246a4-93f9-756a-bfea-549c1da44578",
+    "name": "Bamboo rafting B1",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 3000,
+        "child": 1800
+      }
+    ],
+    "remark": "child 4-10 years",
+    "company": "Bangkaew adventure"
+  },
+  {
+    "id": "019246a4-93f9-72a3-ad23-c185c437ab83",
+    "name": "Bamboo rafting B2",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 3800,
+        "child": 2500
+      }
+    ],
+    "remark": "child 4-10 years",
+    "company": "Bangkaew adventure"
+  },
+  {
+    "id": "019246a4-93f9-78af-8b92-af172c5e20f4",
+    "name": "Bamboo rafting B3",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 4200,
+        "child": 3200
+      }
+    ],
+    "remark": "child 4-10 years",
+    "company": "Bangkaew adventure"
+  },
+  {
+    "id": "019246a4-93f9-7609-a1e2-4e02dcc1083a",
+    "name": "Zipline 15 station",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1300
+      }
+    ],
+    "remark": "",
+    "company": "Zipline xventure phuket"
+  },
+  {
+    "id": "019246a4-93f9-7845-8adc-034fbebe3f81",
+    "name": "Zipline 20 station",
+    "type": "adventure",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 1800
+      }
+    ],
+    "remark": "",
+    "company": "Zipline xventure phuket"
+  },
+  {
+    "id": "019246a4-93f9-72d9-bb52-657d388a2bb7",
+    "name": "Half day program A",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2750,
+        "child": 2550
+      }
+    ],
+    "remark": "child 4-10 years",
+    "company": "Sun bright tour"
+  },
+  {
+    "id": "019246a4-93f9-7aab-837e-71fe12ac330c",
+    "name": "Half day program A",
+    "type": "tour",
+    "description": "...",
+    "itinerary": "...",
+    "include": [],
+    "exclude": [],
+    "prices": [
+      {
+        "adult": 2550,
+        "child": 2250
+      }
+    ],
+    "remark": "child 4-10 years",
+    "company": "Sun bright tour"
+  }
+]

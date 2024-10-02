@@ -1,8 +1,9 @@
 import ThemeSwitcher from "@/components/layout/ThemeSwitcher";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-primary text-primary-content">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,33 +22,35 @@ export const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
+            className="menu menu-sm dropdown-content bg-primary text-primary-content rounded-box z-[1tes] font-semibold mt-3 w-52 p-2 shadow">
+            <li><Link href={`/search`}>Search product</Link></li>
+            <li><Link href={`/blog`}>Blog</Link></li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
+              <details>
+                <summary>About Breath of travel</summary>
+                <ul className="p-2">
+                  <li><Link href={`/about-us`}>About us</Link></li>
+                  <li><Link href={`/contact-us`}>Contact us</Link></li>
+                </ul>
+              </details>
             </li>
-            <li><a>Item 3</a></li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Breath of travel</a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex font-semibold ">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
+          <li><Link href={`/search`}>Search product</Link></li>
+          <li><Link href={`/blog`}>Blog</Link></li>
           <li>
             <details>
-              <summary>Parent</summary>
+              <summary>About Breath of travel</summary>
               <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
+                <li><Link href={`/about-us`}>About us</Link></li>
+                <li><Link href={`/contact-us`}>Contact us</Link></li>
               </ul>
             </details>
           </li>
-          <li><a>Item 3</a></li>
         </ul>
       </div>
       <div className="navbar-end">
