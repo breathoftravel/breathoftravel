@@ -21,7 +21,7 @@ async function fetchProducts() {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Search product | Breath of travel',
+    title: 'product | Breath of travel',
     description: 'ทัวร์ภูเก็ต เกาะสิมิลัน เกาะตาชัย เกาะลันตา มากับเราละมั้ง',
     keywords: ["ทะเล", "ทะเลใต้", "ที่เที่ยวทะเล", "ที่เที่ยวสวย", "ที่เที่ยวหน้าร้อน", "ที่เที่ยวไทยสวยๆ", "รวมที่เที่ยว", "รวมที่เที่ยวไทย", "เกาะ", "เกาะสวยภาคใต้", "เที่ยวไทย"],
     openGraph: {
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page({params}: { params: { slug: string } }) {
   const products = await fetchProducts()
-  const product = products.find((product: TProduct) => product.id === params.slug);
+  const product = products.find((product: TProduct) => product.id === params.slug[0]);
   const pricesJsonLd = product?.prices?.map((price: IPrice) => {
     return {
       "@type": "Product",
