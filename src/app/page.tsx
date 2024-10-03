@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import {Metadata} from "next";
 import {randomHalfNumber, randomNumber} from "@/utils/number";
+import Link from "next/link";
 
 interface IProduct {
   id: string,
@@ -93,6 +94,7 @@ export default async function Home() {
             };
             return (
               <div key={bestIsland.id} className={`w-5/12 md:w-1/5 lg:w-1/4`}>
+                <Link href={`/product/${bestIsland.id}`}>
                 <script
                   type="application/ld+json"
                   dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
@@ -111,6 +113,7 @@ export default async function Home() {
                   {bestIsland.description}
                 </p>
                 <p className={`font-bold text-lg`}>{bestIsland.price}</p>
+                </Link>
               </div>
             )
           })}

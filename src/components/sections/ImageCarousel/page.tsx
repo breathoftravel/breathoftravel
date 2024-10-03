@@ -44,8 +44,14 @@ function ThumbnailPlugin(
     })
   }
 }
-
-export default function ImageCarousel() {
+interface IImage {
+  src: string
+  alt: string
+}
+interface IImageCarousel {
+  images: IImage[]
+}
+export default function ImageCarousel({images}:IImageCarousel) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -80,7 +86,7 @@ export default function ImageCarousel() {
                 <div key={index} className={`keen-slider__slide number-slide${number}`}>
                   <Image
                     src={`/static/image/image-not-found.webp`} // Adjust image path based on your directory structure
-                    alt={`Slide ${index + 1} image`}
+                    alt={`Slide ${index + 1} image ${images[0].alt}`}
                     width={600} // Adjust image dimensions as needed
                     height={300}
                     className="object-cover w-full h-full" // Adjust image styling
@@ -94,7 +100,7 @@ export default function ImageCarousel() {
                 <div key={index} className={`keen-slider__slide number-slide${number}`}>
                   <Image
                     src={`/static/image/image-not-found.webp`} // Adjust image path based on your directory structure
-                    alt={`Slide ${index + 1} image`}
+                    alt={`Slide ${index + 1} image  ${images[0].alt}`}
                     width={60} // Adjust image dimensions as needed
                     height={30}
                     className="object-cover w-full h-full" // Adjust image styling

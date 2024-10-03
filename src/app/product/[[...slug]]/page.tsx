@@ -94,15 +94,11 @@ export default async function Page({params}: { params: { slug: string } }) {
             </div>
             <div className="divider"/>
             <div className={`py-4`}>
-              <ImageCarousel/>
+              <ImageCarousel images={[{src:'',alt:product.name}]}/>
             </div>
             <div className="divider divider-start"><h2>Description</h2></div>
             <p className="indent-8">
-              Whether your partner tired of being your Instagram partner or you simply like great shots of you
-              together, this private Phuket Instagram tour ticks all the boxes. Hit a handful of Phuket signatures,
-              eat lunch at a photo-friendly restaurant, and pose at a secret ocean-view location, with your personal
-              photographer on hand to capture all your best angles. For ease, your package includes 2-way transfers
-              from many southern Phuket hotels.
+              {product.description}
             </p>
             <ul className={`list-none list-inside space-y-2`}>
               <li className={`flex`}><PlusIcon className={`w-4 h-4 self-center mr-2`}/> Admission Fees</li>

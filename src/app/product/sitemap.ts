@@ -8,6 +8,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const products = await fetchProducts()
   return products.map((product:TProduct) => ({
     url: `https://breathoftravel.vercel.app/product/${product.id}`,
-    lastModified: '2024-10-2',
+    lastModified: new Date(),
   }))
 }
