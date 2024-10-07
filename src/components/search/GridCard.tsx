@@ -8,10 +8,10 @@ export default function GridCard({product}:{product:TProduct}) {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure className="w-full">
-        <Image src={`https://breathoftravels.com/static/image/product.webp`}
+        <Image src={`${product.images?.first !== "" ? product.images?.first : "https://breathoftravels.com/static/image/product.webp"}`}
                loading={`lazy`}
-               width={390}
-               height={293}
+               width={470}
+               height={394}
                alt={product.name}/>
       </figure>
       <div className="card-body">

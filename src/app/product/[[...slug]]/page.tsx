@@ -41,7 +41,7 @@ export async function generateMetadata(
       title: `${product.name} | Breath of travel`,
       description: `สัมผัสประสบการณ์ดำน้ำกับ ${product.name} ของเรา`,
       siteName: "Breath of travel",
-      images: [{url: "https://breathoftravels.com/static/image/banner.webp"},...previousImages],
+      images: [{url: product.images?.first !== "" ? product.images?.first : "https://breathoftravels.com/static/image/banner.webp"},...previousImages],
     }
   }
 }
@@ -52,7 +52,7 @@ export default async function Page({params}: { params: { slug: string } }) {
   const pricesJsonLd = product?.prices?.map((price: IPrice) => {
     return {
       "@type": "Product",
-      "image": "https://breathoftravels.com/static/image/category.webp",
+      "image": product.images?.first !== "" ? product.images?.first : "https://breathoftravels.com/static/image/category.webp",
       "url": "https://breathoftravels.com/search",
       "name": product.name,
       "offers": {
@@ -69,7 +69,12 @@ export default async function Page({params}: { params: { slug: string } }) {
     "numberOfItems": 20,
     "itemListElement": pricesJsonLd
   };
-
+  const images = product.images?.landscape.map((image: string) => {
+    return {
+      src: image,
+      alt: product.name
+    }
+  }) || [{src:'',alt:product.name}];
   return (
     <>
       <script
@@ -94,7 +99,7 @@ export default async function Page({params}: { params: { slug: string } }) {
             </div>
             <div className="divider"/>
             <div className={`py-4`}>
-              <ImageCarousel images={[{src:'',alt:product.name}]}/>
+              <ImageCarousel images={images}/>
             </div>
             <div className="divider divider-start"><h2>Description</h2></div>
             <p className="indent-8">

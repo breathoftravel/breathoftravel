@@ -14,10 +14,17 @@ export type TProduct = {
   "prices": IPrice[],
   "remark": string,
   "company": string,
+  "images": IImage,
 }
 export type IPrice = {
   "adult": number,
   "child": number,
+}
+
+export type IImage = {
+  "first": string,
+  "landscape":  string[],
+  "portrait": string[],
 }
 
 // Fetching product data (mock function, replace with actual data fetching logic)

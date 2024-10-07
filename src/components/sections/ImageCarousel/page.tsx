@@ -78,35 +78,65 @@ export default function ImageCarousel({images}:IImageCarousel) {
 
       {
         isLoading ? (
-          <div className="skeleton min-w-[350px] md:min-w-[650px] min-h-[370px] md:min-h-[540px]"/> // Display skeleton while loading
+          <div className="skeleton min-w-[500px] md:min-w-[1034px] min-h-[384px] md:min-h-[868px]"/>
         ) : (
           <>
-            <div ref={sliderRef} className="keen-slider">
-              {numbers.map((number, index) => (
-                <div key={index} className={`keen-slider__slide number-slide${number}`}>
-                  <Image
-                    src={`/static/image/image-not-found.webp`} // Adjust image path based on your directory structure
-                    alt={`Slide ${index + 1} image ${images[0].alt}`}
-                    width={600} // Adjust image dimensions as needed
-                    height={300}
-                    className="object-cover w-full h-full" // Adjust image styling
-                  />
-                </div>
-              ))}
+            <div ref={sliderRef}
+                 className="keen-slider">
+              {images.length > 0 ? (
+                images.map((image, index) => (
+                  <div key={index} className={`keen-slider__slide number-slide${index + 1}`}>
+                    <Image
+                      src={image.src}
+                      alt={`Slide ${index + 1} image ${image.alt}`}
+                      width={940}
+                      height={788}
+                      priority={true}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ))
+              ) : (
+                numbers.map((number, index) => (
+                  <div key={index} className={`keen-slider__slide number-slide${number}`}>
+                    <Image
+                      src={`/static/image/image-not-found.webp`}
+                      alt={`Slide ${index + 1} image not found`}
+                      width={940}
+                      height={788}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ))
+              )}
             </div>
 
             <div ref={thumbnailRef} className="keen-slider thumbnail">
-              {numbers.map((number, index) => (
-                <div key={index} className={`keen-slider__slide number-slide${number}`}>
-                  <Image
-                    src={`/static/image/image-not-found.webp`} // Adjust image path based on your directory structure
-                    alt={`Slide ${index + 1} image  ${images[0].alt}`}
-                    width={60} // Adjust image dimensions as needed
-                    height={30}
-                    className="object-cover w-full h-full" // Adjust image styling
-                  />
-                </div>
-              ))}
+              {images.length > 0 ? (
+                images.map((image, index) => (
+                  <div key={index} className={`keen-slider__slide number-slide${index + 1}`}>
+                    <Image
+                      src={image.src}
+                      alt={`Slide ${index + 1} image ${image.alt}`}
+                      width={235}
+                      height={194}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ))
+              ) : (
+                numbers.map((number, index) => (
+                  <div key={index} className={`keen-slider__slide number-slide${number}`}>
+                    <Image
+                      src={`/static/image/image-not-found.webp`}
+                      alt={`Slide ${index + 1} image not found`}
+                      width={235}
+                      height={197}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ))
+              )}
             </div>
           </>
         )

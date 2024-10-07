@@ -13,7 +13,7 @@ export default function SearchPage() {
       const pricesJsonLd = product?.prices?.map((price: IPrice) => {
         return {
           "@type": "Product",
-          "image": "https://breathoftravels.com/static/image/category.webp",
+          "image": product.images?.first !== "" ? product.images?.first : "https://breathoftravels.com/static/image/category.webp",
           "url": "https://breathoftravels.com/search",
           "name": product.name,
           "offers": {

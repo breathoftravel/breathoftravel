@@ -4,25 +4,19 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'tailwindui.com',
-                port: '',
-                pathname: '**',
-            },
-            {
-                protocol: 'https',
                 hostname: 'images.unsplash.com',
                 port: '',
                 pathname: '**',
             },
             {
                 protocol: 'https',
-                hostname: 'img.daisyui.com',
+                hostname: 'breathoftravels.com',
                 port: '',
                 pathname: '**',
             },
             {
                 protocol: 'https',
-                hostname: 'breathoftravels.com',
+                hostname: 'cdn.breathoftravels.com',
                 port: '',
                 pathname: '**',
             },
