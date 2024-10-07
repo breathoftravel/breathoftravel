@@ -91,7 +91,8 @@ export default function ImageCarousel({images}:IImageCarousel) {
                       alt={`Slide ${index + 1} image ${image.alt}`}
                       width={940}
                       height={788}
-                      priority={true}
+                      loading="lazy"
+                      quality={75}
                       className="object-cover w-full h-full"
                     />
                   </div>
@@ -120,6 +121,7 @@ export default function ImageCarousel({images}:IImageCarousel) {
                       alt={`Slide ${index + 1} image ${image.alt}`}
                       width={235}
                       height={194}
+                      quality={50}
                       className="object-cover w-full h-full"
                     />
                   </div>
