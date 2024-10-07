@@ -13,8 +13,8 @@ export default function SearchPage() {
       const pricesJsonLd = product?.prices?.map((price: IPrice) => {
         return {
           "@type": "Product",
-          "image": "https://breathoftravel.vercel.app/static/image/category.webp",
-          "url": "https://breathoftravel.vercel.app/search",
+          "image": "https://breathoftravels.com/static/image/category.webp",
+          "url": "https://breathoftravels.com/search",
           "name": product.name,
           "offers": {
             "@type": "Offer",
@@ -26,7 +26,7 @@ export default function SearchPage() {
       const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "url": "https://breathoftravel.vercel.app/search",
+        "url": "https://breathoftravels.com/search",
         "numberOfItems": 20,
         "itemListElement": pricesJsonLd
       };

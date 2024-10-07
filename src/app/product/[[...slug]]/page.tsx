@@ -37,11 +37,11 @@ export async function generateMetadata(
     keywords: ["ทะเล", "ทะเลใต้", "ที่เที่ยวทะเล", "ที่เที่ยวสวย", "ที่เที่ยวหน้าร้อน", "ที่เที่ยวไทยสวยๆ", "รวมที่เที่ยว", "รวมที่เที่ยวไทย", "เกาะ", "เกาะสวยภาคใต้", "เที่ยวไทย", ...description],
     openGraph: {
       type: "website",
-      url: "https://breathoftravel.vercel.app/",
+      url: "https://breathoftravels.com/",
       title: `${product.name} | Breath of travel`,
       description: `สัมผัสประสบการณ์ดำน้ำกับ ${product.name} ของเรา`,
       siteName: "Breath of travel",
-      images: [{url: "https://breathoftravel.vercel.app/static/image/banner.webp"},...previousImages],
+      images: [{url: "https://breathoftravels.com/static/image/banner.webp"},...previousImages],
     }
   }
 }
@@ -52,8 +52,8 @@ export default async function Page({params}: { params: { slug: string } }) {
   const pricesJsonLd = product?.prices?.map((price: IPrice) => {
     return {
       "@type": "Product",
-      "image": "https://breathoftravel.vercel.app/static/image/category.webp",
-      "url": "https://breathoftravel.vercel.app/search",
+      "image": "https://breathoftravels.com/static/image/category.webp",
+      "url": "https://breathoftravels.com/search",
       "name": product.name,
       "offers": {
         "@type": "Offer",
@@ -65,7 +65,7 @@ export default async function Page({params}: { params: { slug: string } }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "url": "https://breathoftravel.vercel.app/search",
+    "url": "https://breathoftravels.com/search",
     "numberOfItems": 20,
     "itemListElement": pricesJsonLd
   };
@@ -192,43 +192,43 @@ export default async function Page({params}: { params: { slug: string } }) {
         <div className="carousel carousel-center p-4 space-x-4 rounded-box">
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={300} height={400}
               className="rounded-box" alt={`test`}/>
           </div>
@@ -237,43 +237,43 @@ export default async function Page({params}: { params: { slug: string } }) {
         <div className="carousel carousel-center p-4 space-x-4 rounded-box">
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>
           <div className="carousel-item">
             <Image
-              src="https://breathoftravel.vercel.app/static/image/category.webp"
+              src="https://breathoftravels.com/static/image/category.webp"
               width={200} height={200}
               className="rounded-box" alt={`test`}/>
           </div>

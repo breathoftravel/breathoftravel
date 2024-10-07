@@ -22,7 +22,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'breathoftravel.vercel.app',
+                hostname: 'breathoftravels.com',
                 port: '',
                 pathname: '**',
             },

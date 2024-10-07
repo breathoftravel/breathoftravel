@@ -8,7 +8,7 @@ export default function GridCard({product}:{product:TProduct}) {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure className="w-full">
-        <Image src={`https://breathoftravel.vercel.app/static/image/product.webp`}
+        <Image src={`https://breathoftravels.com/static/image/product.webp`}
                loading={`lazy`}
                width={390}
                height={293}
