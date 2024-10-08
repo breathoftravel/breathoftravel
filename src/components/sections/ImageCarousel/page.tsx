@@ -91,7 +91,8 @@ export default function ImageCarousel({images}:IImageCarousel) {
                       alt={`Slide ${index + 1} image ${image.alt}`}
                       width={940}
                       height={788}
-                      loading="lazy"
+                      loading={index === 0 ? undefined : 'lazy'}
+                      priority={index === 0}
                       quality={75}
                       className="object-cover w-full h-full"
                     />
@@ -105,6 +106,7 @@ export default function ImageCarousel({images}:IImageCarousel) {
                       alt={`Slide ${index + 1} image not found`}
                       width={940}
                       height={788}
+                      loading={index === 0 ? undefined : 'lazy'}
                       className="object-cover w-full h-full"
                     />
                   </div>
@@ -122,6 +124,7 @@ export default function ImageCarousel({images}:IImageCarousel) {
                       width={235}
                       height={194}
                       quality={50}
+                      loading={index === 0 ? undefined : 'lazy'}
                       className="object-cover w-full h-full"
                     />
                   </div>
