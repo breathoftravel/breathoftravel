@@ -96,7 +96,7 @@ export default async function Home() {
                             "offers": {
                                 "@type": "Offer",
                                 "availability": "https://schema.org/InStock",
-                                "price": bestIsland.prices[0]?.adult || bestIsland.price,
+                                "price": bestIsland.prices?.[0]?.adult || bestIsland.price,
                                 "priceCurrency": "THB",
                                 "priceValidUntil": '2024-09-02'
                             },
@@ -115,11 +115,6 @@ export default async function Home() {
                                            priority={index === 0}
                                            src={bestIsland.image}/>
                                     <h3 className={`font-bold`}>{bestIsland.name}</h3>
-                                    <div className={`flex`}>
-                                        {Array(5).fill(undefined).map((_, index) => (
-                                            <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
-                                        ))}
-                                    </div>
                                     <p className={`text-sm whitespace-normal`}>
                                         {bestIsland.description}
                                     </p>
@@ -153,7 +148,7 @@ export default async function Home() {
                             'productId': adventure.id,
                             'sku': adventure.id,
                             'name': adventure?.name,
-                            'keywords': adventure?.name + ' เกาะในไทย เที่ยวไทย',
+                            'keywords': adventure?.name + ',เที่ยวภูเก็ต, เกาะภูเก็ต, zipline, atv',
                             'image': adventure.images?.first || '/static/image/best-islands.webp',
                             'review': {},
                             "aggregateRating": {
@@ -165,7 +160,7 @@ export default async function Home() {
                             "offers": {
                                 "@type": "Offer",
                                 "availability": "https://schema.org/InStock",
-                                "price": adventure.prices[0]?.adult || adventure.price,
+                                "price": adventure.prices?.[0]?.adult || adventure.price,
                                 "priceCurrency": "THB",
                                 "priceValidUntil": '2024-09-02'
                             },
@@ -184,11 +179,6 @@ export default async function Home() {
                                            className="rounded-xl shadow-xl bg-white"
                                            src={adventure.images?.first || '/static/image/best-islands.webp'}/>
                                     <h3 className={`font-bold`}>{adventure.name}</h3>
-                                    <div className={`flex`}>
-                                        {Array(5).fill(undefined).map((_, index) => (
-                                            <StarIconFull key={index} className="size-5 text-yellow-400 shadow-2xl"/>
-                                        ))}
-                                    </div>
                                     <p className={`text-sm whitespace-normal`}>
                                         {adventure.description}
                                     </p>
