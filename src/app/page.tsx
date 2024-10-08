@@ -9,7 +9,7 @@ import {
 import {Metadata} from "next";
 import {randomHalfNumber, randomNumber} from "@/utils/number";
 import Link from "next/link";
-import {IImage} from "@/app/search/[[...slug]]/page";
+import {IImage, IPrice} from "@/app/search/[[...slug]]/page";
 
 interface IProduct {
     id: string,
@@ -19,7 +19,8 @@ interface IProduct {
     promotionPrice: number,
     image: string,
     srcSet: string,
-    images: IImage
+    images: IImage,
+    prices: IPrice[]
 }
 
 interface ICategory {
@@ -84,7 +85,7 @@ export default async function Home() {
                             'sku': bestIsland.id,
                             'name': bestIsland?.name,
                             'keywords': bestIsland?.name + ' เกาะในไทย เที่ยวไทย',
-                            'image': bestIsland?.image,
+                            'image': bestIsland.images?.first || '/static/image/best-islands.webp',
                             'review': {},
                             "aggregateRating": {
                                 "@type": "AggregateRating",
@@ -95,7 +96,7 @@ export default async function Home() {
                             "offers": {
                                 "@type": "Offer",
                                 "availability": "https://schema.org/InStock",
-                                "price": bestIsland.price,
+                                "price": bestIsland.prices[0]?.adult || bestIsland.price,
                                 "priceCurrency": "THB",
                                 "priceValidUntil": '2024-09-02'
                             },
@@ -153,7 +154,7 @@ export default async function Home() {
                             'sku': adventure.id,
                             'name': adventure?.name,
                             'keywords': adventure?.name + ' เกาะในไทย เที่ยวไทย',
-                            'image': adventure?.image,
+                            'image': adventure.images?.first || '/static/image/best-islands.webp',
                             'review': {},
                             "aggregateRating": {
                                 "@type": "AggregateRating",
@@ -164,7 +165,7 @@ export default async function Home() {
                             "offers": {
                                 "@type": "Offer",
                                 "availability": "https://schema.org/InStock",
-                                "price": adventure.price,
+                                "price": adventure.prices[0]?.adult || adventure.price,
                                 "priceCurrency": "THB",
                                 "priceValidUntil": '2024-09-02'
                             },
