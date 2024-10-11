@@ -17,8 +17,10 @@ export type TProduct = {
   "images": IImage,
 }
 export type IPrice = {
-  "adult": number,
-  "child": number,
+  adult: number,
+  child: number,
+  promotionAdult?: number,
+  promotionChild?: number,
 }
 
 export type IImage = {
