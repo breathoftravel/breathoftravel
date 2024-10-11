@@ -7,8 +7,8 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   daisyui: {
-    themes: ["emerald", "light", "dark", "cupcake"],
-    defaultTheme: 'emerald',
+    themes: ["light", "dark", "cupcake"],
+    defaultTheme: 'light',
   },
   plugins: [
     // eslint-disable-next-line @typescript-eslint/no-require-imports

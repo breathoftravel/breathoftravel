@@ -9,7 +9,7 @@ type Props = {
 const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(themes.system);
   const toggleTheme = (): void => {
-    const newTheme = theme == themes.dark ? themes.emerald : themes.dark;
+    const newTheme = theme == themes.dark ? themes.light : themes.dark;
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
@@ -26,7 +26,7 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
       (window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
         ? themes.dark
-        : themes.emerald);
+        : themes.light);
     document.documentElement.setAttribute("data-theme", system);
     localStorage.setItem("theme", system);
     setTheme(system);
