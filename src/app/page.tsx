@@ -69,7 +69,7 @@ export default async function Home() {
     const bestAdventures: IProduct[] = await getBestAdventures();
     return (
         <>
-            <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
+            <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center border-b-2">
                 <h1 className="text-center font-bold text-2xl leading-tight">
                     Best Islands in Thailand.
                 </h1>
@@ -115,9 +115,6 @@ export default async function Home() {
                                            priority={index === 0}
                                            src={bestIsland.image}/>
                                     <h3 className={`font-bold`}>{bestIsland.name}</h3>
-                                    <p className={`text-sm whitespace-normal`}>
-                                        {bestIsland.description}
-                                    </p>
                                     <p className={`font-bold text-lg`}>{bestIsland.price}</p>
                                 </Link>
                             </div>
@@ -133,7 +130,7 @@ export default async function Home() {
                     </Link>
                 </div>
             </div>
-            <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
+            <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center border-b-2">
                 <h1 className="text-center font-bold text-2xl leading-tight">
                     Best Adventure in Phuket.
                 </h1>
@@ -179,9 +176,6 @@ export default async function Home() {
                                            className="rounded-xl shadow-xl bg-white"
                                            src={adventure.images?.first || '/static/image/best-islands.webp'}/>
                                     <h3 className={`font-bold`}>{adventure.name}</h3>
-                                    <p className={`text-sm whitespace-normal`}>
-                                        {adventure.description}
-                                    </p>
                                     <p className={`font-bold text-lg`}>{adventure.price}</p>
                                 </Link>
                             </div>
@@ -197,7 +191,7 @@ export default async function Home() {
                     </Link>
                 </div>
             </div>
-            <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center">
+            <div className="flex flex-col w-full py-14 md:p-14 items-center justify-center  border-b-2">
                 <div className="flex justify-between items-center px-4 py-2 w-5/6">
                     <h1 className="text-center font-bold text-xl leading-tight">
                         Categories.
