@@ -50,7 +50,7 @@ export const Navbar = () => {
                         <li><Link href={`/blog`}>Blog</Link></li>
                         <li>
                             <details>
-                                <summary>About Breath of travel</summary>
+                                <summary>Know Us</summary>
                                 <ul className="p-2">
                                     <li><Link href={`/about-us`}>About us</Link></li>
                                     <li><Link href={`/contact-us`}>Contact us</Link></li>
