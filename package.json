@@ -13,7 +13,7 @@
     "@next/third-parties": "^14.2.14",
     "crypto-js": "^4.2.0",
     "keen-slider": "^6.8.6",
-    "next": "^15.0.0-rc.0",
+    "next": "^15.0.3",
     "react": "^19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "^19.0.0-rc-fb9a90fa48-20240614",
     "sharp": "^0.33.5"
