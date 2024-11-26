@@ -8,7 +8,7 @@ export const Footer = () => {
 
   return (
       <div className="shadow-md">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+        <div className="mx-auto px-4 py-2 flex justify-between items-center">
           <div className="flex space-x-4">
             <a href="#"><i className="fab fa-facebook-f"></i></a>
             <a href="#"><i className="fab fa-google-plus-g"></i></a>
@@ -27,16 +27,15 @@ export const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-300 mt-2">
-          <div className="container mx-auto px-4 py-2 flex justify-center items-center">
+          <div className="container mx-auto px-4 py-4 flex justify-center items-center">
             <nav className="flex space-x-8">
-              <a href="#" className="text-gray-700">HOME</a>
-              <a href="#" className="text-gray-700">PRODUCTS</a>
-              <a href="#" className="text-gray-700">ABOUT US</a>
-              <a href="#" className="text-gray-700">PRICING</a>
-              <a href="#" className="text-gray-700">BLOG</a>
-              <a href="#" className="text-gray-700">CONTACT</a>
+              <a href="#" className="hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105">HOME</a>
+              <a href="#" className="hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105">PRODUCTS</a>
+              <a href="#" className="hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105">ABOUT US</a>
+              <a href="#" className="hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105">PRICING</a>
+              <a href="#" className="hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105">BLOG</a>
+              <a href="#" className="hover:text-blue-500 transition duration-300 ease-in-out transform hover:scale-105">CONTACT</a>
             </nav>
-            <a href="#"><i className="fas fa-search"></i></a>
           </div>
         </div>
       </div>

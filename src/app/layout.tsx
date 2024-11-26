@@ -2,9 +2,10 @@ import type {Metadata} from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import {Navbar} from "@/components/layout/Navbar";
-import ThemeProvider from "@/providers/ThemeProvider";
 import {GoogleAnalytics, GoogleTagManager} from '@next/third-parties/google'
 import {Footer} from "@/components/layout/Footer";
+import { ThemeProvider } from "next-themes";
+import { themes } from "@/providers/ThemeProvider";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -29,14 +30,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <ThemeProvider>
             <body
                 className={`${geistSans.variable} ${geistMono.variable}`}>
-            <Navbar/>
-            {children}
-            <Footer/>
+            <ThemeProvider attribute="class" defaultTheme={themes.system} enableSystem>
+                <Navbar/>
+                {children}
+                <Footer/>
+            </ThemeProvider>
             </body>
-        </ThemeProvider>
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}/>
         <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}/>
         </html>

@@ -7,15 +7,10 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  daisyui: {
-    themes: ["light", "dark", "cupcake"],
-    defaultTheme: 'light',
-  },
   plugins: [
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('daisyui'),
-      require("tailwindcss-animate")
-],
+		// eslint-disable-next-line @typescript-eslint/no-require-imports
+		require("tailwindcss-animate"),
+	],
     theme: {
     	extend: {
     		borderRadius: {

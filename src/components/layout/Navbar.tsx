@@ -1,76 +1,85 @@
 import ThemeSwitcher from "@/components/layout/ThemeSwitcher";
 import Link from "next/link";
 import React from "react";
-import FacebookOutlineIcon from "@/components/icons/FacebookOutline";
-import XOutlineIcon from "@/components/icons/XOutline";
-import InstagramOutlineIcon from "@/components/icons/InstagramOutline";
-import TiktokOutlineIcon from "@/components/icons/TiktokOutline";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { Menu } from "lucide-react";
 
 export const Navbar = () => {
     return (
-        <div className="navbar shadow-md">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" aria-label={`show menu`}>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16"/>
-                        </svg>
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-primary text-primary-content rounded-box z-[1tes] font-semibold mt-3 w-52 p-2 shadow">
-                        <li><Link href={`/search`}>Search product</Link></li>
-                        <li><Link href={`/blog`}>Blog</Link></li>
-                        <li>
-                            <details>
-                                <summary>About Breath of travel</summary>
-                                <ul className="p-2">
-                                    <li><Link href={`/about-us`}>About us</Link></li>
-                                    <li><Link href={`/contact-us`}>Contact us</Link></li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
+        <div className="border-b">
+            <div className="flex h-16 items-center px-4">
+                <div className="md:hidden">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                                <Menu className="h-6 w-6" />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+                            <nav className="flex flex-col gap-4">
+                                <Link href="/search" className="text-sm font-medium">
+                                    Search product
+                                </Link>
+                                <Link href="/blog" className="text-sm font-medium">
+                                    Blog
+                                </Link>
+                                <Link href="/about-us" className="text-sm font-medium">
+                                    About us
+                                </Link>
+                                <Link href="/contact-us" className="text-sm font-medium">
+                                    Contact us
+                                </Link>
+                            </nav>
+                        </SheetContent>
+                    </Sheet>
                 </div>
-                <a className="btn btn-ghost text-xl">Breath of travel</a>
-            </div>
-            <div className="navbar-center hidden lg:flex font-semibold ">
-                <div className="grid grid-cols-1 justify-center items-center">
-                    <ul className="menu menu-horizontal p-1 border-b-2">
-                        <li><Link href={`/search`}>Explore</Link></li>
-                        <li><Link href={`/blog`}>Blog</Link></li>
-                        <li>
-                            <details>
-                                <summary>Know Us</summary>
-                                <ul className="p-2">
-                                    <li><Link href={`/about-us`}>About us</Link></li>
-                                    <li><Link href={`/contact-us`}>Contact us</Link></li>
-                                </ul>
-                            </details>
-                        </li>
-                    </ul>
 
-                    {/* Social Media Icons at the Bottom */}
-                    <div className="flex space-x-2 pt-1 justify-center">
-                        <a href="#"><FacebookOutlineIcon className="w-4 h-4"/></a>
-                        <a href="#"><XOutlineIcon className="w-4 h-4"/></a>
-                        <a href="#"><InstagramOutlineIcon className="w-4 h-4"/></a>
-                        <a href="#"><TiktokOutlineIcon className="w-4 h-4"/></a>
-                    </div>
+                <div className="flex">
+                    <Button variant="ghost" className="text-xl">
+                        Breath of travel
+                    </Button>
                 </div>
-            </div>
-            <div className="navbar-end">
-                <ThemeSwitcher/>
+
+                <div className="hidden md:flex flex-1 flex-col justify-center items-center gap-4">
+                    <NavigationMenu>
+                        <NavigationMenuList>
+                            <NavigationMenuItem>
+                                <Link href="/search" legacyBehavior passHref>
+                                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                                        Explore
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
+                                <Link href="/blog" legacyBehavior passHref>
+                                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                                        Blog
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
+                                <NavigationMenuTrigger>Know Us</NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <div className="w-[200px] p-2">
+                                        <Link href="/about-us" className="block p-2 hover:bg-accent rounded-md">
+                                            About us
+                                        </Link>
+                                        <Link href="/contact-us" className="block p-2 hover:bg-accent rounded-md">
+                                            Contact us
+                                        </Link>
+                                    </div>
+                                </NavigationMenuContent>
+                            </NavigationMenuItem>
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                </div>
+
+                <div className="ml-auto">
+                    <ThemeSwitcher />
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
