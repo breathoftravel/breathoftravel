@@ -13,10 +13,10 @@ import {Pagination} from "@/components/pagination";
 export default function SearchPage() {
     const { packages, page, setPage, totalPages } = useSearchContext()
     const renderCards = () => {
-        return packages?.map((data: TPackage) => {
+        return packages?.map((data: TPackage, index: number) => {
             return (
                 <div key={data.id} className={`col-span-6 lg:col-span-6 xl:col-span-4 rounded-lg`}>
-                    <MinimalCard data={data} />
+                    <MinimalCard data={data} index={index}/>
                 </div>
             )
         });

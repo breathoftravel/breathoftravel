@@ -7,7 +7,7 @@ import { Star, Eye } from "lucide-react";
 import { TImage, TPackage } from "@/interface/product";
 import { formatCurrency } from "@/utils/currency";
 
-export default function MinimalCard({ data }: { data: TPackage }) {
+export default function MinimalCard({ data, index }: { data: TPackage, index: number }) {
   console.log(data?.product?.productImage);
   const images = data.product?.productImage?.map((image: TImage) => {
     return `${process.env.NEXT_PUBLIC_RS_CDN_URL}/product/${image.productId}/${image.name}.webp`;
@@ -24,6 +24,8 @@ export default function MinimalCard({ data }: { data: TPackage }) {
             alt={data.titleEn || ""}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
+            priority={index < 3}
+            loading={index < 3 ? "eager" : "lazy"}
           />
           <Badge className="absolute top-2 left-2 bg-blue-500 text-white">New</Badge>
         </div>
