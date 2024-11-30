@@ -12,3 +12,7 @@ export const generateImageThumborUrl = (path: string, size = '300x300'): string 
     const key = process.env.NEXT_PUBLIC_RS_SECRET_KEY || '';
     return `${process.env.NEXT_PUBLIC_RS_CDN_URL}/pure/${generateHmacSha1Base64(`${size}/${path}`, key)}/${path}`;
 }
+
+export const generateImageStaticUrl = (path: string): string => {
+    return `${process.env.NEXT_PUBLIC_RS_CDN_URL}/${path}`;
+}

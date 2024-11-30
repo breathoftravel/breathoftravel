@@ -22,10 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page({params, searchParams}: {
-  params: { slug: string[] }, searchParams: { page?: string; name?: string; type?: string };
+  params: Promise<{slug: string[]}>, searchParams: Promise<{ page?: string; name?: string; type?: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
-  console.log(params);
+  console.log(await params);
   // Extract query parameters
   const page = parseInt(resolvedSearchParams.page || "1", 10); // Default to page 1 if not provided
   const name = resolvedSearchParams?.name;

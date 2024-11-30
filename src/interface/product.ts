@@ -27,6 +27,7 @@ export type TProduct = {
   refExternalId: string;
   productImage?: TImage[];
   productItinerary: TProductItinerary[];
+  package?: TPackage[];
 }
 
 export type TProductItinerary = {
