@@ -2,39 +2,8 @@ import SearchPage from "@/components/search/page";
 import {Metadata} from "next";
 import SearchProvider from "@/providers/SearchProvider";
 import {Suspense} from "react";
-
-export type TProduct = {
-  "id": string,
-  "name": string,
-  "type": string,
-  "description": string,
-  "itinerary": string | string[],
-  "include": string[],
-  "exclude": string[],
-  "prices": IPrice[],
-  "remark": string,
-  "company": string,
-  "images": IImage,
-}
-export type IPrice = {
-  adult: number,
-  child: number,
-  promotionAdult?: number,
-  promotionChild?: number,
-}
-
-export type IImage = {
-  "first": string,
-  "landscape":  string[],
-  "portrait": string[],
-}
-
-// Fetching product data (mock function, replace with actual data fetching logic)
-async function fetchProducts(slug: string[]) {
-  if (slug?.length < 0) {return []}
-  const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/product.json');
-  return res.json();
-}
+import {TPackageSearchResponse} from "@/interface/product";
+import {fetchProducts} from "@/utils/api";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -52,10 +21,19 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function Page({params}: { params: { slug: string[] } }) {
-  const products: TProduct[] = await fetchProducts(params.slug);
+export default async function Page({params, searchParams}: {
+  params: { slug: string[] }, searchParams: { page?: string; name?: string; type?: string };
+}) {
+  const resolvedSearchParams = await searchParams;
+
+  // Extract query parameters
+  const page = parseInt(resolvedSearchParams.page || "1", 10); // Default to page 1 if not provided
+  const name = resolvedSearchParams?.name;
+  const type = resolvedSearchParams?.type;
+  // Extract query parameters
+  const response: TPackageSearchResponse = await fetchProducts(page, name, type);
   return (
-    <SearchProvider init={{page: 1, products: products.slice(0, 15)}}>
+    <SearchProvider init={response}>
       <Suspense fallback={<>Loading</>}>
         <SearchPage/>
       </Suspense>

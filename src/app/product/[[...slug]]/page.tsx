@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import {Metadata, ResolvingMetadata} from "next";
-import {IPrice, TProduct} from "@/app/search/[[...slug]]/page";
+import {IPrice, TProduct} from "@/interface/product";
 
 // Fetching product data (mock function, replace with actual data fetching logic)
 async function fetchProducts() {
@@ -28,7 +28,7 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const products = await fetchProducts()
-    const product = products.find((product: TProduct) => product.id === params.slug[0]);
+    const product = products.find((product: TProduct) => product.id === params?.slug[0]);
     const previousImages = (await parent).openGraph?.images || []
     const description = Array.isArray(searchParams) ? searchParams : [];
     return {

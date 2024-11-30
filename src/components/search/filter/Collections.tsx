@@ -1,67 +1,57 @@
-'use client';
-import {useState} from "react";
-import {ChevronDoubleDownIcon, ChevronDoubleUpIcon} from "@heroicons/react/24/solid";
+'use client'
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function Collections() {
-    const [isOpen, setIsOpen] = useState(true);
-    const [showMore, setShowMore] = useState(false);
+    const [isOpen, setIsOpen] = useState(true)
+    const [showMore, setShowMore] = useState(false)
 
-    const toggleOpen = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const toggleShowMore = () => {
-        setShowMore(!showMore);
-    };
+    const collections = [
+        { name: "Broadway", count: 23 },
+        { name: "Water Adventures", count: 120, highlight: true },
+        { name: "Adventures", count: 67 },
+        { name: "Sport Shows", count: 35 },
+        { name: "Road Tours", count: 76 },
+        { name: "Mountain & Hills", count: 13 },
+        { name: "City Tours", count: 45 },
+        { name: "Historical Sites", count: 30 },
+        { name: "Museums", count: 25 },
+        { name: "Nightlife", count: 50 },
+    ]
 
     return (
-        <div className="p-4">
-            <div className="flex justify-between items-center mb-2 cursor-pointer"
-                 onClick={toggleOpen}>
-                <h2 className="text-lg font-semibold">Collections</h2>
-                {isOpen ? <ChevronDoubleDownIcon height={16} width={16} className={`ml-2`}/> :
-                    <ChevronDoubleUpIcon height={16} width={16} className={`ml-2`}/>}
-            </div>
-            {isOpen && (
+      <div className="space-y-4">
+          <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold">Collections</h3>
+              <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)}>
+                  {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </Button>
+          </div>
+          {isOpen && (
+            <ScrollArea className="h-[200px] w-full rounded-md border p-4">
                 <ul className="space-y-2">
-                    <li className="text-gray-800">Broadway (23)</li>
-                    <li className="text-red-500">Water Adventures (120)</li>
-                    <li className="text-gray-800">Adventures (67)</li>
-                    <li className="text-gray-800">Sport Shows (35)</li>
-                    <li className="text-gray-800">Road Tours (76)</li>
-                    <li className="text-gray-800">Mountain & Hills (13)</li>
-                    {!showMore && (
-                        <li className="text-gray-800 cursor-pointer" onClick={toggleShowMore}>+23 more</li>
-                    )}
-                    {showMore && (
-                        <>
-                            <li className="text-gray-800">City Tours (45)</li>
-                            <li className="text-gray-800">Historical Sites (30)</li>
-                            <li className="text-gray-800">Museums (25)</li>
-                            <li className="text-gray-800">Nightlife (50)</li>
-                            <li className="text-gray-800">Parks (40)</li>
-                            <li className="text-gray-800">Shopping (60)</li>
-                            <li className="text-gray-800">Theater (20)</li>
-                            <li className="text-gray-800">Wildlife (15)</li>
-                            <li className="text-gray-800">Zoos (10)</li>
-                            <li className="text-gray-800">Beaches (35)</li>
-                            <li className="text-gray-800">Cultural Events (22)</li>
-                            <li className="text-gray-800">Festivals (18)</li>
-                            <li className="text-gray-800">Food Tours (27)</li>
-                            <li className="text-gray-800">Gardens (12)</li>
-                            <li className="text-gray-800">Hiking (19)</li>
-                            <li className="text-gray-800">Photography (14)</li>
-                            <li className="text-gray-800">Religious Sites (11)</li>
-                            <li className="text-gray-800">Scenic Drives (16)</li>
-                            <li className="text-gray-800">Skiing (8)</li>
-                            <li className="text-gray-800">Snorkeling (9)</li>
-                            <li className="text-gray-800">Theme Parks (21)</li>
-                            <li className="text-gray-800">Wine Tours (13)</li>
-                            <li className="text-gray-800 cursor-pointer" onClick={toggleShowMore}>Show less</li>
-                        </>
-                    )}
+                    {collections.slice(0, showMore ? collections.length : 6).map((collection, index) => (
+                      <li key={index} className={`text-sm ${collection.highlight ? "text-primary font-medium" : "text-muted-foreground"}`}>
+                          {collection.name} ({collection.count})
+                      </li>
+                    ))}
                 </ul>
-            )}
-        </div>
-    );
+                {collections.length > 6 && (
+                  <Button
+                    variant="link"
+                    size="sm"
+                    onClick={() => setShowMore(!showMore)}
+                    className="mt-2 p-0"
+                  >
+                      {showMore ? "Show less" : `+${collections.length - 6} more`}
+                  </Button>
+                )}
+            </ScrollArea>
+          )}
+      </div>
+    )
 }
+

@@ -1,4 +1,6 @@
-import {useState} from "react";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { X } from 'lucide-react';
 
 export default function TagLabel() {
     const [tags, setTags] = useState([
@@ -10,14 +12,26 @@ export default function TagLabel() {
     const removeTag = (id: number) => {
         setTags(tags.filter(tag => tag.id !== id));
     };
+
     return (
-        <div className="flex space-x-4 p-4">
+        <div className="flex flex-wrap gap-2 p-4">
             {tags.map(tag => (
-                <div key={tag.id} className="bg-gray-100 px-4 py-2 rounded flex items-center space-x-2">
-                    <span className="text-gray-400">{tag.text}</span>
-                    <span className="text-gray-400 cursor-pointer" onClick={() => removeTag(tag.id)}>x</span>
-                </div>
+                <Badge 
+                    key={tag.id} 
+                    variant="secondary" 
+                    className="px-3 py-1 text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors duration-200"
+                >
+                    {tag.text}
+                    <button
+                        onClick={() => removeTag(tag.id)}
+                        className="ml-2 hover:text-red-500 focus:outline-none"
+                        aria-label={`Remove ${tag.text} tag`}
+                    >
+                        <X size={14} />
+                    </button>
+                </Badge>
             ))}
         </div>
     );
 }
+

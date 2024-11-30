@@ -1,24 +1,33 @@
-import Collections from "@/components/search/filter/Collections";
-import EventTime from "@/components/search/filter/EventTime";
-import Duration from "@/components/search/filter/Duration";
-import Region from "@/components/search/filter/Region";
-import PriceRange from "@/components/search/filter/PriceRange";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import Collections from "@/components/search/filter/Collections"
+import EventTime from "@/components/search/filter/EventTime"
+import Duration from "@/components/search/filter/Duration"
+import Region from "@/components/search/filter/Region"
+import PriceRange from "@/components/search/filter/PriceRange"
 
 export default function Filter() {
   return (
-    <div className="card">
-      <div className="card-body rounded-lg shadow-lg">
-        <div className="flex justify-between items-center mb-2">
-          <div className="text-gray-800 font-bold text-lg">FILTERS</div>
-          <div className="text-gray-400 text-sm cursor-pointer">Reset</div>
-        </div>
-        <hr/>
+    <Card className="w-full">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-2xl font-bold">Filters</CardTitle>
+        <Button variant="ghost" size="sm">
+          Reset
+        </Button>
+      </CardHeader>
+      <CardContent className="space-y-6">
         <Region />
+        <Separator />
         <PriceRange />
+        <Separator />
         <Collections />
+        <Separator />
         <EventTime />
+        <Separator />
         <Duration />
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }
+

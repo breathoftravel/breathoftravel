@@ -1,103 +1,88 @@
-import React, {ReactElement, useEffect, useState} from 'react';
+import React from 'react';
+import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 interface PaginationProps {
-  totalItems: number;
-  itemsPerPage: number;
   currentPage: number;
+  totalPages: number;
   onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-                                                 totalItems,
-                                                 itemsPerPage,
-                                                 currentPage,
-                                                 onPageChange,
-                                               }) => {
-  const [pageCount, setPageCount] = useState(0);
+export function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
+  const maxVisiblePages = 5;
 
-  useEffect(() => {
-    setPageCount(Math.ceil(totalItems / itemsPerPage));
-  }, [totalItems, itemsPerPage]);
-
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= pageCount) {
-      onPageChange(page);
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        for (let i = 1; i <= 4; i++) {
+          pageNumbers.push(i);
+        }
+        pageNumbers.push('...');
+        pageNumbers.push(totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pageNumbers.push(1);
+        pageNumbers.push('...');
+        for (let i = totalPages - 3; i <= totalPages; i++) {
+          pageNumbers.push(i);
+        }
+      } else {
+        pageNumbers.push(1);
+        pageNumbers.push('...');
+        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+          pageNumbers.push(i);
+        }
+        pageNumbers.push('...');
+        pageNumbers.push(totalPages);
+      }
     }
-  };
-
-  const renderPaginationButtons = () => {
-    const buttons: ReactElement[] = [];
-
-    // First button
-    buttons.push(
-      <button
-        key="first"
-        className="join-item btn"
-        onClick={() => handlePageChange(1)}
-      >
-        First
-      </button>
-    );
-
-    // Previous button
-    buttons.push(
-      <button
-        key="previous"
-        className="join-item btn"
-        onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
-    );
-
-    // Page number buttons
-    const startPage = Math.max(currentPage - 2, 1);
-    const endPage = Math.min(startPage + 4, pageCount);
-
-    for (let i = startPage; i <= endPage; i++) {
-      buttons.push(
-        <button
-          key={i}
-          className={`join-item btn ${i === currentPage ? 'active' : ''}`}
-          onClick={() => handlePageChange(i)}
-        >
-          {i}
-        </button>
-      );
-    }
-
-    // Next button
-    buttons.push(
-      <button
-        key="next"
-        className="join-item btn"
-        onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage === pageCount}
-      >
-        Next
-      </button>
-    );
-
-    // Last button
-    buttons.push(
-      <button
-        key="last"
-        className="join-item btn"
-        onClick={() => handlePageChange(pageCount)}
-      >
-        Last
-      </button>
-    );
-
-    return buttons;
+    return pageNumbers;
   };
 
   return (
-    <div className="flex items-center justify-center mt-5">
-      <div className="join">{renderPaginationButtons()}</div>
-    </div>
+    <nav className="flex justify-center items-center space-x-2 mt-8" aria-label="Pagination">
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        aria-label="Previous page"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </Button>
+      {getPageNumbers().map((pageNumber, index) => (
+        <React.Fragment key={index}>
+          {pageNumber === '...' ? (
+            <span className="px-2">
+              <MoreHorizontal className="h-4 w-4" />
+            </span>
+          ) : (
+            <Button
+              variant={currentPage === pageNumber ? "default" : "outline"}
+              size="icon"
+              onClick={() => onPageChange(pageNumber as number)}
+              aria-label={`Page ${pageNumber}`}
+              aria-current={currentPage === pageNumber ? "page" : undefined}
+            >
+              {pageNumber}
+            </Button>
+          )}
+        </React.Fragment>
+      ))}
+      <Button
+        variant="outline"
+        size="icon"
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        aria-label="Next page"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+    </nav>
   );
-};
+}
 
-export default Pagination;

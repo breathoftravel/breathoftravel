@@ -9,8 +9,7 @@ import {
 import {Metadata} from "next";
 import {randomHalfNumber, randomNumber} from "@/utils/number";
 import Link from "next/link";
-import {IImage, IPrice} from "@/app/search/[[...slug]]/page";
-
+import {ICategory, IImage, IPrice} from "@/interface/product";
 interface IProduct {
     id: string,
     name: string,
@@ -22,16 +21,6 @@ interface IProduct {
     images: IImage,
     prices: IPrice[]
 }
-
-interface ICategory {
-    id: string,
-    name: string,
-    slug: string,
-    icon: string,
-    image: string,
-    srcSet: string,
-}
-
 async function getBestIslands() {
     const res = await fetch('https://sukhantharot.github.io/dummy-fake-json/best-islands.json');
     return res.json();

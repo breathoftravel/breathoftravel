@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
-import {TProduct} from "@/app/search/[[...slug]]/page";
-
+import {TPackage} from "@/interface/product";
 
 export interface SearchContextContextInterface {
   page: number;
   setPage: (page: number) => void;
-  products: TProduct[];
-  setProducts: (products: TProduct[]) => void;
+  packages: TPackage[];
+  setPackages: (packages: TPackage[]) => void;
+  name?: string,
+  setName: (name: string) => void;
+  totalPages: number;
+  setTotalPages: (totalPage: number) => void;
 }
 
 export const SearchContext = React.createContext<SearchContextContextInterface| undefined>(undefined);

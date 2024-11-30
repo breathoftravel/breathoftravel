@@ -9,5 +9,3 @@ export const formatCurrency = (amount: number): string => {
   // Replace the currency symbol with the ฿ symbol
   return formatted.replace('THB', '฿');
 };
-
-console.log(formatCurrency(1200)); // Output: 1,200.00 ฿
