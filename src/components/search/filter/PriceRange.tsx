@@ -19,14 +19,14 @@ export default function PriceRange() {
                 type="number"
                 value={priceRange[0]}
                 onChange={(e) => handlePriceChange([parseInt(e.target.value), priceRange[1]])}
-                className="w-24"
+                className="w-full"
               />
               <span>to</span>
               <Input
                 type="number"
                 value={priceRange[1]}
                 onChange={(e) => handlePriceChange([priceRange[0], parseInt(e.target.value)])}
-                className="w-24"
+                className="w-full"
               />
           </div>
           <Slider

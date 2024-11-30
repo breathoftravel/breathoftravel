@@ -25,7 +25,7 @@ export default function SearchPage() {
         <>
             <div className="container mx-auto px-2 py-8">
                 <div className="grid grid-cols-12 gap-4">
-                    <div className={`col-span-12 block lg:hidden`}>
+                    <div className={`col-span-12 md:col-span-4 block lg:hidden`}>
                         <div className="drawer">
                             <input id="filterSearch" type="checkbox" className="drawer-toggle" />
                             <div className="drawer-content">
